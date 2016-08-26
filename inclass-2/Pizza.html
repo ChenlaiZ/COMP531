@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Pizza Guys Order Form</title>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="HTML, JAVASCRIPT">
+	<meta name="author" content="Chenlai Zhang">
+</head>
+<h1>Pizza Guys Order Form</h1>
+<body>
+	<form>
+		Name:<br>
+		<input id="id1" type="text" name="your name"><br>
+		Address:#### Street Name ...<br>
+		<input id="id2" type="text" name="dilivery address"><br>
+		Phone Number:<br>
+		<input id="id3" type="tel" name="phone" pattern='\d\d\d-\d\d\d-\d\d\d\d'>
+		<p><u>Pizza size</u></p>
+		<input id="id4" type="radio" name="size" value="Large">Large
+		<input id="id5" type="radio" name="size" value="Medium">Medium
+		<input id="id6" type="radio" name="size" value="Small">Small
+		<p><u>Pizza Toppings</u></p>
+		<input id="id7" type="checkbox" name="top1" value="sausage">Sausage
+		<input id="id8" type="checkbox" name="top2" value="pepperoni">Pepperoni
+		<input id="id9" type="checkbox" name="top3" value="olives">Olives
+		<input id="id10" type="checkbox" name="top4" value="anchovies">Anchovies
+		<input id="id11" type="checkbox" name="top5" value="onions">Onions
+		<p>
+		<button type="button" onclick="checkAll()">Please Order</button>
+		<button type="button" onclick="clearAll()">Clear</button>
+		</p>
+	    <p id="demo1"></p>
+	    <p id="demo2"></p>
+	    <p id="demo3"></p>
+	</form>
+	<script type="text/javascript"> 
+		function checkAll(){
+			var obj1 = document.getElementByld("id1").value;
+			var obj2 = document.getElementByld("id2").value;
+			var obj3 = document.getElementByld("id3").value;
+            var obj4 = document.getElementByld("id4").checked;
+      		var obj5 = document.getElementByld("id5").checked;
+      		var obj6 = document.getElementByld("id6").checked;
+			if(obj1=="" || obj1==null) document.getElementById("demo1").innerHTML="Name must be filled out";
+			if(obj2=="" || obj2==null) document.getElementById("demo2").innerHTML="Address must be filled out";
+			if(obj3=="" || obj3==null) document.getElementById("demo3").innerHTML="Phone must be filled out";
+      		if(obj4==false&&obj5==false&&obj6==false) document.getElementById("demo4").innerHTML="Pizza size must be filled out";      
+
+		}
+
+	  	function clearAll(){
+	    	document.getElementById('id1').value='';
+	    	document.getElementById('id2').value='';
+	      	document.getElementById('id3').value='';
+	      	document.getElementById('id4').checked=false;
+	      	document.getElementById('id5').checked=false;
+	      	document.getElementById('id6').checked=false;
+	      	document.getElementById('id7').checked=false;
+	      	document.getElementById('id8').checked=false;
+	      	document.getElementById('id9').checked=false;
+	      	document.getElementById('id10').checked=false;
+	      	document.getElementById('id11').checked=false;
+	    }
+	</script>
+</body>
