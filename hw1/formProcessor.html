@@ -1,0 +1,92 @@
+<html>
+	<head>
+		<style>
+			table {
+			    border-collapse: collapse;
+			    width: 100%;
+			}
+
+			td, th {
+			    border: 1px solid #dddddd;
+			    text-align: left;
+			    padding: 8px;
+			}
+		</style>
+	</head>
+	<body>
+		<table>
+		  <tr>
+		    <th>Key</th>
+		    <th>Value</th>
+		  </tr>
+		  <tr>
+		    <td>Account Name</td>
+		    <td id="demo1"></td>
+		  </tr>
+		  <tr>
+		    <td>Display Name</td>
+		    <td id="demo2"></td>
+		  </tr>
+		  <tr>
+		    <td>Email</td>
+		    <td id="demo3"></td>
+		  </tr>
+		  <tr>
+		    <td>Phone Number</td>
+		    <td id="demo4"></td>	    
+		  </tr>
+		  <tr>
+		    <td>Date of Birth</td>
+		    <td id="demo5"></td>		    
+		  </tr>
+		  <tr>
+		    <td>Zipcode</td>
+		    <td id="demo6"></td>		    
+		  </tr>
+		  <tr>
+		    <td>Password</td>
+		    <td id="demo7"></td>		    
+		  </tr>
+		  <tr>
+		    <td>Password Confirmation</td>
+		    <td id="demo8"></td>	    
+		  </tr>		
+		  <tr>
+		    <td>Timestamp</td>
+		    <td id="demo9"></td>		    
+		  </tr>  
+		</table>
+	</body>
+	<script type="text/javascript">
+		function getParameter(paraName)
+		{
+			var urlStr=location.href;
+			var queryStr=(urlStr.split("?"))[1];
+			var queryParaList=queryStr.split("&");
+			var queryValue="";
+			for(var i=0;i<queryParaList.length;i++)
+			{
+				var queryParaName=(queryParaList[i].split("="))[0];
+				if(queryParaName==paraName)
+				{
+					queryValue=(queryParaList[i].split("="))[1];
+					break;
+				}
+			}
+			return queryValue;
+		}
+		document.getElementById("demo1").innerHTML = getParameter("AccountName");
+		document.getElementById("demo2").innerHTML = getParameter("DisplayName");
+		document.getElementById("demo3").innerHTML = getParameter("Email").replace(/%40/,"@");
+		document.getElementById("demo4").innerHTML = getParameter("Phone");
+		document.getElementById("demo5").innerHTML = getParameter("DateofBirth");
+		document.getElementById("demo6").innerHTML = getParameter("Zipcode");
+		document.getElementById("demo7").innerHTML = getParameter("Password");
+		document.getElementById("demo8").innerHTML = getParameter("PasswordConfirmation");
+		document.getElementById("demo9").innerHTML = getParameter("Timestamp").replace(/\+/g, " ").replace(/%3A/g,":").replace(/%28/,"(").replace(/%29/,")");
+	</script>
+</html>
+
+<!--
+file:///Users/chenlaizhang/Documents/COMP531/formProcessor.html?AccountName=abcdefg&DisplayName=&email=Chenlai.Zhang%40rice.edu&phone=111-111-1111&DateofBirth=1991-08-01&Zipcode=77030&Password=aaa111&PasswordConfirmation=aaa111&Submit=Submit
+-->
