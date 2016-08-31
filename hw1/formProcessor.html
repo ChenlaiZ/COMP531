@@ -76,14 +76,15 @@
 			return queryValue;
 		}
 		document.getElementById("demo1").innerHTML = getParameter("AccountName");
-		document.getElementById("demo2").innerHTML = getParameter("DisplayName");
+		document.getElementById("demo2").innerHTML = getParameter("DisplayName").replace(/\+/g, " ");
 		document.getElementById("demo3").innerHTML = getParameter("Email").replace(/%40/,"@");
 		document.getElementById("demo4").innerHTML = getParameter("Phone");
 		document.getElementById("demo5").innerHTML = getParameter("DateofBirth");
 		document.getElementById("demo6").innerHTML = getParameter("Zipcode");
 		document.getElementById("demo7").innerHTML = getParameter("Password");
 		document.getElementById("demo8").innerHTML = getParameter("PasswordConfirmation");
-		document.getElementById("demo9").innerHTML = getParameter("Timestamp").replace(/\+/g, " ").replace(/%3A/g,":").replace(/%28/,"(").replace(/%29/,")");
+		document.getElementById("demo9").innerHTML = new Date(getParameter("Timestamp")/1);
+		//.replace(/\+/g, " ").replace(/%3A/g,":").replace(/%28/,"(").replace(/%29/,")");
 	</script>
 </html>
 
