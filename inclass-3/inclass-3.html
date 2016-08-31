@@ -8,7 +8,7 @@
   </style>  
 </head>
 
-<body>
+<body onload="TimeoutAlert()">
   <form>
     <h1>Inclass-3 Exercise</h1>
     <p>My name is <b>Chenlai Zhang</b>. The following is my picture,</p>
@@ -36,12 +36,13 @@
        document.getElementById("txf").value = "";  
     }
 
+    function TimeoutAlert(){
+        setTimeout(function() {alert("The page will redirect when the counter reaches zero");}, 5000);
+    }
+    
   	function func(){
     	  document.getElementById("indicator").innerHTML = t/1000;
         t=t-1000;
-        if(t<=9000){
-          document.getElementById("indicator1").innerHTML = "the page will redirect when the counter reaches zero";
-        }
         if(t<=0){
           clearInterval(t_out);
           window.location.href = "http://www.clear.rice.edu/comp431/sample/hello.html";
