@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-  <meta charset="UTF-8">
-  <meta name="keywords" content="HTML, JAVASCRIPT">
-  <meta name="author" content="Chenlai Zhang">
-  <style>
-  </style>  
+    <meta charset="UTF-8">
+    <meta name="keywords" content="HTML, JAVASCRIPT">
+    <meta name="author" content="Chenlai Zhang">
+    <style>
+    </style>  
 </head>
 
 <body onload="TimeoutAlert()">
   <form>
-    <h1>Inclass-3 Exercise</h1>
-    <p>My name is <b>Chenlai Zhang</b>. The following is my picture,</p>
-    <img src="https://staff.rice.edu/images/staff/branding/logo.jpg" width="300px" title="PHOTO">
-    <p>This is the photo of my graduate college.</p>
-    <p>My Contact Infomation: <a href="https://www.facebook.com/chenlai.zhang.9">Facebook</a></p>
-    <p>Comment: </p>
-    <p><textarea rows="4" cols="30" id="txf"></textarea></p>
-  	<p><button id="clear" onclick="return clearText()">clear</button></p>
-    <p><span id="indicator" style="color:red;font-weight:bold">15</span></p> 
-    <p><span id="indicator1" style="color:green;font-weight:bold"></span></p> 
-    <input type="button" value="Pause" onclick="pause()">
-    <input type="button" value="Resume" onclick="resume()">
-    <p id="demo1"></p>
+      <h1>Inclass-3 Exercise</h1>
+      <p>My name is <b>Chenlai Zhang</b>. The following is my picture,</p>
+      <img src="https://staff.rice.edu/images/staff/branding/logo.jpg" width="300px" title="PHOTO">
+      <p>This is the photo of my graduate college.</p>
+      <p>My Contact Infomation: <a href="https://www.facebook.com/chenlai.zhang.9">Facebook</a></p>
+      <p>Comment: </p>
+      <p><textarea rows="4" cols="30" id="txf"></textarea></p>
+    	<p><button id="clear" onclick="return clearText()">clear</button></p>
+      <p><span id="indicator" style="color:red;font-weight:bold">15</span></p> 
+      <p><span id="indicator1" style="color:green;font-weight:bold"></span></p> 
+      <input type="button" value="Pause" onclick="pause()">
+      <input type="button" value="Resume" onclick="resume()">
+      <p id="demo1"></p>
   </form>
 
 
@@ -33,7 +33,7 @@
     var t_remain = t;
 
     function clearText(){
-       document.getElementById("txf").value = "";  
+        document.getElementById("txf").value = "";  
     }
 
     function TimeoutAlert(){
@@ -44,9 +44,9 @@
     	  document.getElementById("indicator").innerHTML = t/1000;
         t=t-1000;
         if(t<=0){
-          clearInterval(t_out);
-          window.location.href = "http://www.clear.rice.edu/comp431/sample/hello.html";
-          return;
+            clearInterval(t_out);
+            window.location.href = "http://www.clear.rice.edu/comp431/sample/hello.html";
+            return;
         }
     }
 
