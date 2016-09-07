@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <style>
+         .card {
+            margin:0 auto;
+            padding-top: 5px;
+            padding-right: 5px;
+            padding-bottom: 5px;
+            padding-left: 5px;
+            margin-bottom: 12pt;
+            background-color: rgb(0,255,0);
+            width: 30%;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            color: blue;
+            border-style: solid;
+            border-color: red; 
+        }
+        .card:hover {
+            box-shadow: 0 9px 18px 0 rgba(0,0,0,0.2);
+        }  
+        #button {
+            width:100px;
+            height:50px;
+            position:absolute;
+            top:100px;
+            left:100px;
+        }
+    </style>
+</head>
+
+<body id="body_id">
+    <nav>
+        <div class="card" id="post_div" align="center" style= "visibility: hidden">
+            <h3>Congratulations!</h3>
+            <h3>You win!</h3>
+        </div>
+    </nav>
+    <input type="button" id="button" value="Click Me">
+ 
+    <script src="avoid.js">
+    </script>
+
+</body>
+</html>
