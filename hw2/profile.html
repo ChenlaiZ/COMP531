@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Customer Profile Page</title>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="HTML, JAVASCRIPT">
+	<meta name="author" content="Chenlai Zhang">
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+	<h1>Customer Profile Page</h1>
+	<table>
+		<tr>
+		  	<td>Display Name</td>
+		  	<td><input type="text" id="DisplayName" placeholder="can only be letters"></td>
+		  	<td><span id="name_demo">Chenlai Zhang</span></td>
+		</tr>
+		<tr>
+		  	<td>Email Address</td>
+		  	<td><input type="email" id="Email" placeholder="Enter your email"></td>
+		  	<td><span id="email_demo">Chenlai.Zhang@rice.edu</span></td>
+		</tr>
+		<tr>
+		  	<td>Phone Number</td>
+		  	<td><input type="text" id="Phone" pattern='\d{3}-\d{3}-\d{4}' placeholder="xxx-xxx-xxxx"></td>
+		  	<td><span id="phone_demo">713-380-1234</span></td>
+		</tr>
+		<tr>
+		  	<td>Zipcode</td>
+		  	<td><input type="text" id="Zipcode" placeholder="xxxxx"></td>
+		  	<td><span id="zip_demo">77030</span></td>
+		</tr>
+		<tr>
+		  	<td>Password</td>
+		  	<td><input type="password" id="password1" placeholder="can only be letters and numbers"></td>
+		  	<td><span id="pass1_demo"></td>
+		</tr>
+		<tr>
+		  	<td>Password Confirmation</td>
+		  	<td><input type="password" id="password2" placeholder="can only be letters and numbers"></td>
+		  	<td><span id="pass2_demo"></td>
+		</tr>
+		<tr>
+			<td><input type="button" id="button" value="Update"></td>
+			<td><input type="submit" id="return" value="Return to Main Page"></td>
+		</tr>
+	</table>
+	<script type="text/javascript" src="profile.js">  	
+	</script>
+</body>
+</html>
