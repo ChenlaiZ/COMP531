@@ -7,6 +7,7 @@ window.onload = function() {
   var headline = document.getElementById("headline");
   var updateBtn = document.getElementById("update");
   var hdlupdate = document.getElementById("hdlupdate");
+  
     postBtn.onclick = function() {
       post.value = "";
     }

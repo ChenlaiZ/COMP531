@@ -3,25 +3,25 @@
 <head>
 	<title>Customer Profile Page</title>
 	<meta charset="UTF-8">
-	<meta name="keywords" content="HTML, JAVASCRIPT">
+	<meta name="keywords" content="HTML,CSS,JavaScript">
 	<meta name="author" content="Chenlai Zhang">
 	<link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
 
 	<h1>Customer Profile Page</h1>
-	<div class="float-left-area">
-	<div class="inner-left">
+	<div class="user_card">
 		<img id="img1" src="profile.jpeg" alt="My profile">
-		<p>Add Image: <input type="file" value="Choose File"></p>
+		<p><input type="file" value="Choose File"></p>
+		<p><input type="button" class="card_button" value="Update Profile Picture"></p>
 		<p id="name_demo">Chenlai Zhang</p>
 		<p id="email_demo">Chenlai.Zhang@rice.edu</p>
 		<p id="phone_demo">713-380-1234</p>
 		<p>April 1st, 1995</p>
 		<p id="zip_demo">77030</p>
 	</div>
-	</div>
-	<table>
+	<table class="index_table">
 		<tr>
 		  	<td>Display Name</td>
 		  	<td><input type="text" id="DisplayName" placeholder="can only be letters"></td>
@@ -46,11 +46,12 @@
 		  	<td>Password Confirmation</td>
 		  	<td><input type="password" id="password2" placeholder="can only be letters and numbers"></td>
 		</tr>
-		<tr>
-			<td><input type="button" id="button" value="Update"></td>
-			<td><input type="submit" id="return" value="Return to Main Page"></td>
-		</tr>
 	</table>
+	<br>
+	<div class="btnprofile">
+		<input type="button" class="button" id="button" value="Update">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="submit" class="button" id="return" value="Return to Main Page">
+	</div>
 	<script type="text/javascript" src="profile.js">  	
 	</script>
 </body>
