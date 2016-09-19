@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Registartion Page</title>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="HTML, JAVASCRIPT">
+	<meta name="author" content="Chenlai Zhang">
+	<script type="text/javascript" src="index.js"></script>
+</head>
+<body">
+	<h1>New User Registration Fields</h1>
+	<form action="main.html" method="get"> 
+  		<p>The <b>account name</b> can only be 6 to 10 digits of upper or lower case letters and numbers, but may not start with a number.</p>
+  		<p>Account Name: <input type="text" name="AccountName" placeholder="your account name" pattern="^[a-zA-Z]\w{5,9}$" required></p>
+
+  		<p>Display Name(optional): <input type="text" name="DisplayName" placeholder="your name" pattern="^[A-Za-z\s]+$"></p>
+
+  		<p>Email: <input type="email" name="Email" pattern="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" required></p>
+
+  		<p>Phone Number: <input type="text" name="Phone" pattern="\d{3}-\d{3}-\d{4}" placeholder="xxx-xxx-xxxx" required></p>
+
+  		<p>Date of Birth: <input type="date" id="id1" name="DateofBirth" format="mm/dd/yyyy" required></p>   	
+
+  		<p>Zipcode: <input type="text" name="Zipcode" pattern="\d{5}" placeholder="xxxxx" required></p>
+
+  		<p>The <b>password</b> can only be 6 to 18 digits of upper or lower case letters and numbers, but may not start with a number.</p>
+  		<p>Password: <input type="password" id="password1" name="Password" pattern="^[a-zA-Z]\w{5,17}$" required></p>
+  		
+		<p>Password Confirmation: <input type="password" id="password2" name="PasswordConfirmation" pattern="^[a-zA-Z]\w{5,17}$" required></p>
+
+		<p><input type="hidden" name="Timestamp" id="timestamp"></p>
+
+		<p>
+    		<input type="submit" id="submit" value="Submit">
+    		<input type="reset" value="Clear">
+		</p>
+	</form>
+	<h1>Registered User Fields</h1>
+	<p>Account Name: <input type="text" id="actname" placeholder="your account name"></p>
+	<p>Password: <input type="password" id="password" name="Password"></p>
+	<p><input type="button" id="signin" value="Sign in"></p>
+</body>
+</html>
