@@ -14,8 +14,8 @@ window.onload = function() {
 		var pass1 = document.getElementById("password1");
 		var pass2 = document.getElementById("password2");
 		if (pass1.value != pass2.value){
-	     	alert("The passwords you enter do not match!");
-	    	return false;       		
+			alert("The passwords you enter do not match!");
+			return false;       		
 		}else if((birthYear>preYear-18)||(birthYear==preYear-18&&birthMonth>preMonth)||(birthYear==preYear-18&&birthMonth==preMonth&&birthDay>preDay)){
 			alert("Only individuals 18 years of age or older on the day of registration are allowed to register!");
 			return false;
