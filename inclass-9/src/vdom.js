@@ -82,8 +82,8 @@ function updateElement(parent, newNode, oldNode, index=0) {
                 parent.removeChild(parent.children[index]);
                 parent.appendChild(childelement);
             } else {
-                newNode.children.forEach(function(child, i, array) {
-                    updateElement(parent.children[index], child, oldNode.children[i], i)
+                newNode.children.forEach(function(child, cindex, array) {
+                    updateElement(parent.children[index], child, oldNode.children[cindex], cindex);
                 })
             }
         }
