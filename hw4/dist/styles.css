@@ -1,0 +1,48 @@
+body{
+    background-color: #e8ffff;
+}
+
+canvas{
+    display: block;
+    margin: 50px auto;
+    box-shadow: -2px -2px 2px #efefef, 5px 5px 5px #b9b9b9;
+}
+
+.info{
+    width: 30%;
+    border: 1px solid black;
+    outline-color: red;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    border-radius: 25px;
+    float: left;
+    background-color: cornsilk;
+}
+
+.content{
+    width: 90%;
+    border: 1px solid black;
+    outline-color: red;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    border-radius: 25px;
+    float: left;
+    background-color: powderblue;
+}
+
+.restart{
+    position:absolute;
+    left: 53%;
+}
+
+.restart span{
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #0080ff;
+    border-radius: 5px;
+}

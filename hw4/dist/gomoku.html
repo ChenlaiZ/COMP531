@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Gomoku</title>
+        <meta charset="UTF-8">
+        <meta name="author" content="Chenlai Zhang">
+        <link rel="stylesheet" type="text/css" href="styles.css"/>
+    </head>
+    <body>
+        <div class="info">
+            <div class="content">
+                <p>Instructions: </p>
+                <p>There are totally three levels: 1, 2, 3, increasingly harder</p>
+                <p>Before the game, please press "Start Game"</p>
+                <p>During the game, you may use "Hint" to tell you what to do in next step</p>
+                <p>When you are notified that the game is over, please press "Restart" to restart the game</p>
+                <p>You may also restart the game during the game, and the game will be reloaded</p>
+            </div>
+            <div>&nbsp;</div>
+            <div class="content">
+                <p>Difficulty Level: <span id="level"></span></p>
+                <p>The number of pieces: <span id="piecenum"></span></p>
+                <p>Score: <span id="scorenum"></span></p>
+            </div>
+        </div>
+        <canvas id="chess" width="480px" height="480px"></canvas>
+        <div class="restart">
+            <span id='start'>Start Game</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span id='restart'>Restart</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span id='shownext'>Hint</span> 
+        </div>       
+        <script src="script.js" type="text/javascript" charset="utf-8"></script>
+    </body>
+</html>
