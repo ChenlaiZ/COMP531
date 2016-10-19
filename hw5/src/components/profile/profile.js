@@ -38,14 +38,10 @@ const Messages = connect(
 const Profile = () => {
     return (
         <div>
-            <div className="row">&nbsp;</div>
-            <div className="row">&nbsp;</div>
-            <div className="row">&nbsp;</div>
+            <h1>Customer Profile Page</h1>
             <Avatar/>
-            <div className="col-xs-5 col-md-5">
-                <Messages/>
-                <ProfileForm/>
-            </div>
+            <Messages/>
+            <ProfileForm/>
         </div>
     )
 }

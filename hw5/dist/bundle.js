@@ -47287,7 +47287,7 @@
 	        ),
 	        success.length == 0 ? '' : _react2.default.createElement(
 	            'div',
-	            { className: 'alert-success' },
+	            { className: 'alert_success' },
 	            _react2.default.createElement(
 	                'div',
 	                { id: 'successMessage' },
@@ -47709,47 +47709,28 @@
 	    var success = _ref.success;
 	    return _react2.default.createElement(
 	        'div',
-	        { className: 'row' },
+	        null,
 	        _react2.default.createElement(
 	            'div',
-	            { className: 'col-sm-10' },
+	            null,
 	            error.length == 0 ? '' : _react2.default.createElement(
 	                'div',
-	                { className: 'alert alert-danger' },
-	                _react2.default.createElement('div', { className: 'col-sm-1' }),
+	                { className: 'alert_error' },
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'col-sm-10', id: 'errorMessage' },
+	                    { id: 'errorMessage' },
 	                    error
-	                ),
-	                _react2.default.createElement('div', { className: 'col-sm-1' }),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'row' },
-	                    '\xA0'
 	                )
 	            ),
 	            success.length == 0 ? '' : _react2.default.createElement(
 	                'div',
-	                { className: 'alert alert-success' },
-	                _react2.default.createElement('div', { className: 'col-sm-1' }),
+	                { className: 'alert_success' },
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'col-sm-10', id: 'successMessage' },
+	                    { id: 'successMessage' },
 	                    success
-	                ),
-	                _react2.default.createElement('div', { className: 'col-sm-1' }),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'row' },
-	                    '\xA0'
 	                )
 	            )
-	        ),
-	        _react2.default.createElement(
-	            'div',
-	            { className: 'col-sm-2' },
-	            '\xA0'
 	        )
 	    );
 	};
@@ -47771,27 +47752,13 @@
 	        'div',
 	        null,
 	        _react2.default.createElement(
-	            'div',
-	            { className: 'row' },
-	            '\xA0'
-	        ),
-	        _react2.default.createElement(
-	            'div',
-	            { className: 'row' },
-	            '\xA0'
-	        ),
-	        _react2.default.createElement(
-	            'div',
-	            { className: 'row' },
-	            '\xA0'
+	            'h1',
+	            null,
+	            'Customer Profile Page'
 	        ),
 	        _react2.default.createElement(_avatar2.default, null),
-	        _react2.default.createElement(
-	            'div',
-	            { className: 'col-xs-5 col-md-5' },
-	            _react2.default.createElement(Messages, null),
-	            _react2.default.createElement(_profileForm2.default, null)
-	        )
+	        _react2.default.createElement(Messages, null),
+	        _react2.default.createElement(_profileForm2.default, null)
 	    );
 	};
 	exports.default = Profile;
@@ -47871,102 +47838,102 @@
 	                        _this2.props.dispatch((0, _profileActions.updateProfile)(payload));
 	                    } },
 	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'form-group row' },
+	                    'table',
+	                    { className: 'index_table' },
 	                    _react2.default.createElement(
-	                        'label',
-	                        { className: 'col-sm-3 form-control-label', 'for': 'email' },
-	                        'email'
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'col-sm-6' },
-	                        _react2.default.createElement('input', { className: 'form-control', id: 'email', type: 'text', placeholder: this.props.oldEmail,
-	                            ref: function ref(node) {
-	                                return _this2.email = node;
-	                            } })
-	                    )
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'form-group row' },
-	                    _react2.default.createElement(
-	                        'label',
-	                        { className: 'col-sm-3 form-control-label', 'for': 'phone' },
-	                        'phone'
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'col-sm-6' },
-	                        _react2.default.createElement('input', { className: 'form-control', id: 'phone', type: 'text', placeholder: this.props.phone,
-	                            ref: function ref(node) {
-	                                return _this2.phone = node;
-	                            } })
-	                    )
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'form-group row' },
-	                    _react2.default.createElement(
-	                        'label',
-	                        { className: 'col-sm-3 form-control-label', 'for': 'zipcode' },
-	                        'zipcode'
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'col-sm-6' },
-	                        _react2.default.createElement('input', { className: 'form-control', id: 'zipcode', type: 'text', placeholder: this.props.oldZipcode,
-	                            ref: function ref(node) {
-	                                return _this2.zipcode = node;
-	                            } })
-	                    )
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'form-group row' },
-	                    _react2.default.createElement(
-	                        'label',
-	                        { className: 'col-sm-3 form-control-label', 'for': 'password' },
-	                        'password'
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'col-sm-6' },
-	                        _react2.default.createElement('input', { className: 'form-control', id: 'password', type: 'password', placeholder: 'password',
-	                            ref: function ref(node) {
-	                                return _this2.password = node;
-	                            } })
-	                    )
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'form-group row' },
-	                    _react2.default.createElement(
-	                        'label',
-	                        { className: 'col-sm-3 form-control-label', 'for': 'pwconf' },
-	                        'password confirmation'
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'col-sm-6' },
-	                        _react2.default.createElement('input', { className: 'form-control', id: 'pwconf', type: 'password', placeholder: 'password',
-	                            ref: function ref(node) {
-	                                return _this2.pwconf = node;
-	                            } })
-	                    )
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'form-group row' },
-	                    _react2.default.createElement('span', { className: 'col-sm-3 form-control-label' }),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'col-sm-9' },
+	                        'tr',
+	                        null,
 	                        _react2.default.createElement(
-	                            'button',
-	                            { className: 'btn btn-primary', type: 'submit' },
-	                            'Update'
+	                            'td',
+	                            null,
+	                            'Email Address'
+	                        ),
+	                        _react2.default.createElement(
+	                            'td',
+	                            null,
+	                            _react2.default.createElement('input', { id: 'email', type: 'text', placeholder: this.props.oldEmail,
+	                                ref: function ref(node) {
+	                                    return _this2.email = node;
+	                                } })
 	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'tr',
+	                        null,
+	                        _react2.default.createElement(
+	                            'td',
+	                            null,
+	                            'Phone Number'
+	                        ),
+	                        _react2.default.createElement(
+	                            'td',
+	                            null,
+	                            _react2.default.createElement('input', { id: 'phone', type: 'text', placeholder: this.props.phone,
+	                                ref: function ref(node) {
+	                                    return _this2.phone = node;
+	                                } })
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'tr',
+	                        null,
+	                        _react2.default.createElement(
+	                            'td',
+	                            null,
+	                            'Zipcode'
+	                        ),
+	                        _react2.default.createElement(
+	                            'td',
+	                            null,
+	                            _react2.default.createElement('input', { id: 'zipcode', type: 'text', placeholder: this.props.oldZipcode,
+	                                ref: function ref(node) {
+	                                    return _this2.zipcode = node;
+	                                } })
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'tr',
+	                        null,
+	                        _react2.default.createElement(
+	                            'td',
+	                            null,
+	                            'Password'
+	                        ),
+	                        _react2.default.createElement(
+	                            'td',
+	                            null,
+	                            _react2.default.createElement('input', { id: 'password', type: 'password', placeholder: 'password',
+	                                ref: function ref(node) {
+	                                    return _this2.password = node;
+	                                } })
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'tr',
+	                        null,
+	                        _react2.default.createElement(
+	                            'td',
+	                            null,
+	                            'Password Confirmation'
+	                        ),
+	                        _react2.default.createElement(
+	                            'td',
+	                            null,
+	                            _react2.default.createElement('input', { id: 'pwconf', type: 'password', placeholder: 'password',
+	                                ref: function ref(node) {
+	                                    return _this2.pwconf = node;
+	                                } })
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement('br', null),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'btnprofile' },
+	                    _react2.default.createElement(
+	                        'button',
+	                        { className: 'button', type: 'submit' },
+	                        'Update'
 	                    )
 	                )
 	            );
@@ -48069,34 +48036,29 @@
 	
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'col-xs-5 col-md-5' },
-	                _react2.default.createElement('div', { className: 'col-sm-2' }),
+	                { className: 'user_card' },
+	                _react2.default.createElement('img', { width: '100%', src: this.props.img }),
+	                _react2.default.createElement(
+	                    'em',
+	                    null,
+	                    'Upload new profile avatar'
+	                ),
+	                _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    _react2.default.createElement('input', { type: 'file', accept: 'image/*', onChange: function onChange(e) {
+	                            return _this3.handleImageChange(e);
+	                        } })
+	                ),
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'col-sm-8' },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'row' },
-	                        _react2.default.createElement('img', { width: '100%', src: this.props.img })
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'row' },
-	                        _react2.default.createElement(
-	                            'em',
-	                            null,
-	                            'Upload new profile avatar'
-	                        ),
-	                        _react2.default.createElement('input', { type: 'file', accept: 'image/*', onChange: function onChange(e) {
-	                                return _this3.handleImageChange(e);
-	                            } })
-	                    ),
+	                    null,
 	                    !this.file ? '' : _react2.default.createElement(
 	                        'div',
 	                        null,
 	                        _react2.default.createElement(
 	                            'div',
-	                            { className: 'row' },
+	                            null,
 	                            _react2.default.createElement('img', { width: '100%', src: this.preview })
 	                        ),
 	                        _react2.default.createElement(
@@ -48107,12 +48069,36 @@
 	                            parseInt(this.file.size / 1024 * 100) / 100.0,
 	                            ' kB)'
 	                        ),
-	                        _react2.default.createElement('input', { className: 'btn btn-primary', type: 'button', value: 'Upload', onClick: function onClick() {
+	                        _react2.default.createElement('input', { className: 'card_button', type: 'button', value: 'Update Profile Picture', onClick: function onClick() {
 	                                _this3.props.dispatch((0, _profileActions.uploadImage)(_this3.file));
 	                            } })
 	                    )
 	                ),
-	                _react2.default.createElement('div', { className: 'col-sm-2' })
+	                _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    'Chenlai Zhang'
+	                ),
+	                _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    'April 1st, 1995'
+	                ),
+	                !this.email ? '' : _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    this.email.value
+	                ),
+	                !this.phone ? '' : _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    this.phone.value
+	                ),
+	                !this.zipcode ? '' : _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    this.zipcode.value
+	                )
 	            );
 	        }
 	    }]);

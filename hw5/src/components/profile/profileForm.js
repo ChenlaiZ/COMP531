@@ -27,47 +27,36 @@ class ProfileForm extends Component {
             }
             this.props.dispatch(updateProfile(payload))
         }}>
-            <div className="form-group row">
-                <label className="col-sm-3 form-control-label" for="email">email</label>
-                <div className="col-sm-6">
-                    <input className="form-control" id="email" type="text" placeholder={this.props.oldEmail}
-                        ref={(node) => this.email = node }/>
-                </div>
-            </div>
-            <div className="form-group row">
-                <label className="col-sm-3 form-control-label" for="phone">phone</label>
-                <div className="col-sm-6">
-                    <input className="form-control" id="phone" type="text" placeholder={this.props.phone}
-                        ref={(node) => this.phone = node }/>
-                </div>
-            </div>            
-            <div className="form-group row">
-                <label className="col-sm-3 form-control-label" for="zipcode">zipcode</label>
-                <div className="col-sm-6">
-                    <input className="form-control" id="zipcode" type="text" placeholder={this.props.oldZipcode}
-                        ref={(node) => this.zipcode = node }/>
-                </div>
-            </div>
-            <div className="form-group row">
-                <label className="col-sm-3 form-control-label" for="password">password</label>
-                <div className="col-sm-6">
-                    <input className="form-control" id="password" type="password" placeholder="password"
-                        ref={(node) => this.password = node }/>
-                </div>
-            </div>
-            <div className="form-group row">
-                <label className="col-sm-3 form-control-label" for="pwconf">password confirmation</label>
-                <div className="col-sm-6">
-                    <input className="form-control" id="pwconf" type="password"placeholder="password"
-                        ref={(node) => this.pwconf = node }/>
-                </div>
-            </div>
-
-            <div className="form-group row">
-                <span className="col-sm-3 form-control-label"></span>
-                <div className="col-sm-9">
-                    <button className="btn btn-primary" type="submit">Update</button>
-                </div>
+            <table className="index_table">
+                <tr>
+                    <td>Email Address</td>
+                    <td><input id="email" type="text" placeholder={this.props.oldEmail}
+                        ref={(node) => this.email = node }/></td>
+                </tr>
+                <tr>
+                    <td>Phone Number</td>
+                    <td><input id="phone" type="text" placeholder={this.props.phone}
+                        ref={(node) => this.phone = node }/></td>
+                </tr>
+                <tr>
+                    <td>Zipcode</td>
+                    <td><input id="zipcode" type="text" placeholder={this.props.oldZipcode}
+                        ref={(node) => this.zipcode = node }/></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input id="password" type="password" placeholder="password"
+                        ref={(node) => this.password = node }/></td>
+                </tr>
+                <tr>
+                    <td>Password Confirmation</td>
+                    <td><input id="pwconf" type="password"placeholder="password"
+                        ref={(node) => this.pwconf = node }/></td>
+                </tr>
+            </table>
+            <br />
+            <div className="btnprofile">
+                <button className="button" type="submit">Update</button> 
             </div>
         </form>
     )}

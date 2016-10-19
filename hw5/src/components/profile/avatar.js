@@ -27,29 +27,25 @@ class Avatar extends Component {
     }
 
     render() { return (
-        <div className="col-xs-5 col-md-5">
-            <div className="col-sm-2"></div>
-            <div className="col-sm-8">
-                <div className="row">
-                    <img width="100%" src={this.props.img}/>
-                </div>
-                <div className="row">
-                    <em>Upload new profile avatar</em>
-                    <input type="file" accept="image/*" onChange={(e) => this.handleImageChange(e)}/>
-                </div>
+        <div className="user_card">
+            <img width="100%" src={this.props.img}/>
+            <em>Upload new profile avatar</em>
+            <p><input type="file" accept="image/*" onChange={(e) => this.handleImageChange(e)}/></p>
+            <div>
             { !this.file ? '' :
                 <div>
-                    <div className="row">
+                    <div>
                         <img width="100%" src={this.preview}/>
                     </div>
                     <div>
                         { this.file.webkitRelativePath || this.file.name } ({ parseInt(this.file.size / 1024 * 100)/100.0 } kB)
                     </div>
-                    <input className="btn btn-primary" type="button" value="Upload" onClick={() => { this.props.dispatch(uploadImage(this.file)) }}/>
+                    <input className="card_button" type="button" value="Update Profile Picture" onClick={() => { this.props.dispatch(uploadImage(this.file)) }}/>
                 </div>
             }
             </div>
-            <div className="col-sm-2"></div>
+            <p>Chenlai Zhang</p>
+            <p>April 1st, 1995</p>         
         </div>
     )}
 }
