@@ -1,0 +1,203 @@
+.postImage {
+    max-width: 150px;
+    max-height: 150px;
+    float: left;
+    padding: 0.1em;
+    margin: 0.5em;    
+}
+
+.newPostBody {
+    border: 1pt solid gray;
+    max-width: 60%;
+    min-width: 250px;
+}
+
+.followingImage {
+     width: 48px;
+     max-width: 48px;
+}
+
+.jumbotron {
+    padding:50px 20px 50px 20px;
+    margin:10px auto;
+    opacity: 0.9;
+}
+
+.well{
+    opacity: 0.9;
+}
+
+.navbar.navbar-default.navbar-fixed-top {
+    opacity: 0.9;
+}
+
+/*#app {
+    background: url('http://hdlatestwallpapers.com/wp-content/uploads/2014/09/Free-Backgrounds-For-Web-Design-e1409631478302.jpeg') no-repeat center center fixed; 
+    background-size: cover;
+    -webkit-background-size: cover;
+}
+*/
+span[contenteditable='true']:hover {
+    background: #e6e6e6;
+}
+
+
+body{
+    background-color: cornsilk;
+}
+
+td{
+    border: 1px solid #dddddd;
+    width:200px;
+    height:auto;
+    text-align: left;
+    padding: 8px;
+}
+
+h1{
+    font-size: 35px;
+    text-align: center;    
+    font-family: "Times New Roman", Times, serif;
+}
+
+h3 {
+    font-size: 25px;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+}
+
+p {
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+}
+
+span{
+    color: saddlebrown;
+}
+
+.alert_error{
+    background: pink;
+    width: 100%;
+    text-align: center;
+}
+
+.alert_success{
+    background: rgb(79, 255, 0);
+    width: 100%;
+    text-align: center;
+}
+
+.index_table {
+    border-collapse: collapse;
+    width: 50%;
+    background: powderblue;
+    align-content: center;
+    margin-left:25%; 
+    margin-right:25%; 
+}
+
+.card_table {
+    border-collapse: collapse;
+    width: 75%;
+    background: powderblue;
+    align-content: center;
+    margin-left:25%; 
+}
+
+.register_title {
+    font-size: 18px;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.login_title { 
+    font-size: 18px;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.btnsignin { 
+    text-align: center;
+}
+
+.btnprofile{
+    margin-left:38%; 
+}
+
+.button {
+    background-color: powderblue;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.cardbutton {
+    background-color: powderblue;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.user_card {
+    width: 20%;
+    border: 1px solid black;
+    outline-color: red;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    border-radius: 25px;
+    float: left;
+    background-color: powderblue;
+}
+
+.user_card img{
+    width: 98%;
+}
+
+.user_card p{
+    align: center;
+}
+
+.headfield{
+    width: 90%;
+    height: 20px;
+}
+
+
+.postarea{
+    width: 80%;
+    height: 50px;
+}
+
+.searchfield{
+    width: 80%;
+    height: 15px;
+}
+
+.card {
+    width: 90%;
+    border: 1px solid black;
+    outline-color: red;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    border-radius: 25px;
+    float: left;
+    background-color: pink;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+    padding: 2px 16px;
+}
