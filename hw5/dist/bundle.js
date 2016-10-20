@@ -31005,49 +31005,45 @@
 	  var dispatch = _ref.dispatch;
 	  return _react2.default.createElement(
 	    'nav',
-	    { className: 'navbar navbar-inverse navbar-fixed-top' },
+	    null,
 	    _react2.default.createElement(
 	      'div',
-	      { className: 'container-fluid' },
+	      null,
 	      username.length == 0 ? '' : _react2.default.createElement(
 	        'div',
-	        { className: 'nav navbar-nav navbar-right' },
-	        _react2.default.createElement(
-	          'ul',
-	          { className: 'nav navbar-nav' },
-	          onProfile ? _react2.default.createElement(
-	            'li',
-	            null,
-	            _react2.default.createElement(
-	              'a',
-	              { href: '#', onClick: function onClick() {
-	                  dispatch((0, _actions.navToMain)());
-	                } },
-	              'Home'
-	            )
-	          ) : _react2.default.createElement(
-	            'li',
-	            null,
-	            _react2.default.createElement(
-	              'a',
-	              { href: '#', onClick: function onClick() {
-	                  dispatch((0, _actions.navToProfile)());
-	                } },
-	              'Edit Your Profile'
-	            )
-	          ),
+	        null,
+	        onProfile ? _react2.default.createElement(
+	          'li',
+	          { className: 'button' },
 	          _react2.default.createElement(
-	            'li',
-	            null,
-	            _react2.default.createElement(
-	              'a',
-	              { href: '#', onClick: function onClick() {
-	                  dispatch((0, _authActions.logout)());
-	                } },
-	              'Log out ',
-	              username,
-	              ' '
-	            )
+	            'a',
+	            { href: '#', onClick: function onClick() {
+	                dispatch((0, _actions.navToMain)());
+	              } },
+	            'Home'
+	          )
+	        ) : _react2.default.createElement(
+	          'li',
+	          { className: 'button' },
+	          _react2.default.createElement(
+	            'a',
+	            { href: '#', onClick: function onClick() {
+	                dispatch((0, _actions.navToProfile)());
+	              } },
+	            'Edit Your Profile'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          { className: 'button' },
+	          _react2.default.createElement(
+	            'a',
+	            { href: '#', onClick: function onClick() {
+	                dispatch((0, _authActions.logout)());
+	              } },
+	            'Log out ',
+	            username,
+	            ' '
 	          )
 	        )
 	      )
@@ -31506,6 +31502,10 @@
 	
 	var _articlesView2 = _interopRequireDefault(_articlesView);
 	
+	var _actions = __webpack_require__(/*! ../../actions */ 204);
+	
+	var _authActions = __webpack_require__(/*! ../auth/authActions */ 211);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Main = function Main() {
@@ -31520,41 +31520,14 @@
 	            _react2.default.createElement(
 	                'div',
 	                null,
-	                '\xA0'
-	            ),
-	            _react2.default.createElement(
-	                'div',
-	                null,
-	                '\xA0'
-	            ),
-	            _react2.default.createElement(
-	                'div',
-	                null,
-	                '\xA0'
-	            ),
-	            _react2.default.createElement(
-	                'nav',
-	                null,
 	                _react2.default.createElement(
-	                    'div',
+	                    'h1',
 	                    null,
 	                    _react2.default.createElement(
-	                        'h1',
+	                        'b',
 	                        null,
-	                        _react2.default.createElement(
-	                            'b',
-	                            null,
-	                            'Rice Book'
-	                        )
+	                        'Rice Book'
 	                    )
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    '\xA0\xA0',
-	                    _react2.default.createElement('input', { type: 'button', className: 'button', value: 'Profile', id: 'login' }),
-	                    '\xA0\xA0',
-	                    _react2.default.createElement('input', { type: 'button', className: 'button', value: 'Logout', id: 'logout' })
 	                )
 	            ),
 	            _react2.default.createElement(
@@ -31664,11 +31637,15 @@
 	                    !(this.newHeadline && this.newHeadline.value.length > 0) ? '' : _react2.default.createElement(
 	                        'div',
 	                        null,
-	                        _react2.default.createElement('input', { className: 'udtbtn', type: 'button', value: 'Update your Headline',
-	                            onClick: function onClick() {
-	                                _this2.props.dispatch((0, _profileActions.updateHeadline)(_this2.newHeadline.value));
-	                                _this2.newHeadline.value = '';
-	                            } })
+	                        _react2.default.createElement(
+	                            'p',
+	                            null,
+	                            _react2.default.createElement('input', { className: 'udtbtn', type: 'button', value: 'Update your Headline',
+	                                onClick: function onClick() {
+	                                    _this2.props.dispatch((0, _profileActions.updateHeadline)(_this2.newHeadline.value));
+	                                    _this2.newHeadline.value = '';
+	                                } })
+	                        )
 	                    )
 	                )
 	            );
@@ -46956,32 +46933,32 @@
 	            var date = (0, _moment2.default)(new Date(this.props.date));
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'row' },
-	                _react2.default.createElement('div', { className: 'col-sm-1' }),
+	                null,
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'col-sm-8' },
+	                    null,
 	                    _react2.default.createElement(
 	                        'h4',
 	                        null,
 	                        _react2.default.createElement('img', { className: 'followingImage', src: this.props.avatar }),
+	                        '\xA0\xA0',
 	                        this.props.author,
 	                        ' commented on ',
 	                        date.format('MM-DD-YYYY'),
 	                        ' at ',
-	                        date.format('HH:mm:ss')
+	                        date.format('HH:mm:ss'),
+	                        _react2.default.createElement(_contentEditable2.default, { html: this.props.text,
+	                            contentEditable: this.props.username == this.props.author,
+	                            tooltip: this.props.username == this.props.author ? 'click to edit' : '',
+	                            onChange: function onChange(e) {
+	                                _this2.newMessage = e.target.value;
+	                                _this2.disabled = _this2.props.text == _this2.newMessage;
+	                                _this2.forceUpdate();
+	                            } })
 	                    ),
-	                    _react2.default.createElement(_contentEditable2.default, { className: 'media-body', html: this.props.text,
-	                        contentEditable: this.props.username == this.props.author,
-	                        tooltip: this.props.username == this.props.author ? 'click to edit' : '',
-	                        onChange: function onChange(e) {
-	                            _this2.newMessage = e.target.value;
-	                            _this2.disabled = _this2.props.text == _this2.newMessage;
-	                            _this2.forceUpdate();
-	                        } }),
 	                    this.props.username != this.props.author ? '' : _react2.default.createElement(
 	                        'div',
-	                        { className: 'media-right' },
+	                        null,
 	                        _react2.default.createElement(
 	                            'span',
 	                            { className: 'cardbutton',
@@ -47169,20 +47146,24 @@
 	                            'div',
 	                            { className: 'card' },
 	                            _react2.default.createElement(
-	                                'p',
+	                                'div',
 	                                null,
-	                                'Say something...'
-	                            ),
-	                            _react2.default.createElement(
-	                                'p',
-	                                null,
-	                                _react2.default.createElement('textarea', { 'class': 'postarea',
-	                                    placeholder: 'Add your post here...',
-	                                    value: this.message,
-	                                    onChange: function onChange(e) {
-	                                        _this3.message = e.target.value;
-	                                        _this3.forceUpdate();
-	                                    } })
+	                                _react2.default.createElement(
+	                                    'p',
+	                                    null,
+	                                    'Say something...'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'p',
+	                                    null,
+	                                    _react2.default.createElement('textarea', { className: 'postarea',
+	                                        placeholder: 'Add your post here...',
+	                                        value: this.message,
+	                                        onChange: function onChange(e) {
+	                                            _this3.message = e.target.value;
+	                                            _this3.forceUpdate();
+	                                        } })
+	                                )
 	                            ),
 	                            _react2.default.createElement(
 	                                'div',
@@ -47209,7 +47190,7 @@
 	                            ),
 	                            !this.file ? '' : _react2.default.createElement(
 	                                'div',
-	                                { className: 'row' },
+	                                null,
 	                                _react2.default.createElement('img', { className: 'postImage', src: this.preview }),
 	                                _react2.default.createElement(
 	                                    'div',
