@@ -5,10 +5,13 @@ import { addFollower, delFollower, dispatch } from './followingActions'
 
 const Follower = ({name, avatar, headline, dispatch}) => (
     <div className="follower_card" name="follower">
-        <img className="followingImage" src={ avatar }/>
+        <img src={ avatar }/>
         <p>{ name }</p>
         <p><em>{ headline }</em></p>
-        <input type="button" value="Unfollow" onClick={() => { dispatch(delFollower(name)) }}></input>
+        <p>
+            <input className="udtbtn" type="button" value="Unfollow" onClick={() => { dispatch(delFollower(name)) }} />
+        </p>
+        <div>&nbsp;</div>
     </div>
 )
 
@@ -22,24 +25,25 @@ Follower.propTypes = {
 class Following extends Component {
     render() { return (
         <div className="user_card">
+            <h3><b>Following List:</b></h3>
             { Object.keys(this.props.followers).sort().map((f) => this.props.followers[f]).map((follower) =>
                 <Follower key={follower.name}
                     name={follower.name} avatar={follower.avatar} headline={follower.headline}
                     dispatch={this.props.dispatch} />           
             )}
-            <div>&nbsp;</div>
             <div>
-                <input type="text" placeholder="add a follower"
+                <p><input type="text" placeholder="add a follower"
                         ref={(node) => this.newFollower = node }
-                        onChange={(e) => { this.forceUpdate() }}/>
+                        onChange={(e) => { this.forceUpdate() }}/></p>
+                <div>&nbsp;</div>
                 { !(this.newFollower && this.newFollower.value && this.newFollower.value.length > 0) ? '' :
-                    <input type="button"
+                    <p><input type="button"
                         onClick={() => {
                             this.props.dispatch(addFollower(this.newFollower.value))
                             this.newFollower.value = ''
                             this.forceUpdate()
                         }}
-                        value="Add"/>
+                        value="Add"/></p>
                 }
                 { this.props.error.length == 0 ? '' :
                     <div className="alert_error">

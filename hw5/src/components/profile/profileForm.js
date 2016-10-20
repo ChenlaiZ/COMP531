@@ -27,37 +27,39 @@ class ProfileForm extends Component {
             }
             this.props.dispatch(updateProfile(payload))
         }}>
-            <table className="index_table">
-                <tr>
-                    <td>Email Address</td>
-                    <td><input id="email" type="text" placeholder={this.props.oldEmail}
-                        ref={(node) => this.email = node }/></td>
-                </tr>
-                <tr>
-                    <td>Phone Number</td>
-                    <td><input id="phone" type="text" placeholder={this.props.phone}
-                        ref={(node) => this.phone = node }/></td>
-                </tr>
-                <tr>
-                    <td>Zipcode</td>
-                    <td><input id="zipcode" type="text" placeholder={this.props.oldZipcode}
-                        ref={(node) => this.zipcode = node }/></td>
-                </tr>
-                <tr>
-                    <td>Password</td>
-                    <td><input id="password" type="password" placeholder="password"
-                        ref={(node) => this.password = node }/></td>
-                </tr>
-                <tr>
-                    <td>Password Confirmation</td>
-                    <td><input id="pwconf" type="password"placeholder="password"
-                        ref={(node) => this.pwconf = node }/></td>
-                </tr>
-            </table>
-            <br />
-            <div className="btnprofile">
-                <button className="button" type="submit">Update</button> 
-            </div>
+            
+                <table className="index_table">
+                    <tr>
+                        <td>Email Address</td>
+                        <td><input id="email" type="text" placeholder={this.props.oldEmail}
+                            ref={(node) => this.email = node }/></td>
+                    </tr>
+                    <tr>
+                        <td>Phone Number</td>
+                        <td><input id="phone" type="text" placeholder={this.props.phone}
+                            ref={(node) => this.phone = node }/></td>
+                    </tr>
+                    <tr>
+                        <td>Zipcode</td>
+                        <td><input id="zipcode" type="text" placeholder={this.props.oldZipcode}
+                            ref={(node) => this.zipcode = node }/></td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td><input id="password" type="password" placeholder="password"
+                            ref={(node) => this.password = node }/></td>
+                    </tr>
+                    <tr>
+                        <td>Password Confirmation</td>
+                        <td><input id="pwconf" type="password"placeholder="password"
+                            ref={(node) => this.pwconf = node }/></td>
+                    </tr>
+                </table>
+                <br />
+                <div className="btnprofile">
+                    <button className="button" type="submit">Update</button> 
+                </div>
+
         </form>
     )}
 }

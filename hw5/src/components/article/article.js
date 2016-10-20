@@ -19,107 +19,99 @@ class Article extends Component {
   render() {
     const date = moment(new Date(this.props.date))
     return (
-    <div className="row" name="article">
-      <div className="col-sm-11">
-        <h3>
-          <img className="followingImage" src={ this.props.avatar }/>
-          {this.props.author} said
-          on {date.format('MM-DD-YYYY')} at {date.format('HH:mm:ss')}
-        </h3>
-
-        <div className="row">
-          <div className="col-sm-9">
-            <div className="media-left">
-              <img className="postImage" src={this.props.img}/>
-            </div>
-            <ContentEditable className="media-body" html={this.props.text}
-              contentEditable={this.props.username == this.props.author}
-              tooltip={this.props.username == this.props.author ? 'click to edit' : ''}
-              onChange={(e) => {
-                this.newMessage = e.target.value
-                this.disabled = this.props.text == this.newMessage
-                this.forceUpdate()
-              }}/>
-          </div>
-        </div>
-
-        <div className="btn-group btn-group-justified">
-          <div className="btn-group">
-            <label className="btn btn-warning"
-              onClick={() => {
-                this.hideComments = !this.hideComments
-                this.forceUpdate()
-              }}>
-              { this.hideComments ? 'Show' : 'Hide' } Comments ({ this.props.comments.length })
-            </label>
-          </div>
-
-          <div className="btn-group">
-            <label className="btn btn-success"
-              onClick={() => { this.addComment = !this.addComment; this.forceUpdate() }}>
-              { this.addComment ? 'Cancel' : 'Add a comment' }
-            </label>
-          </div>
-
-        { this.props.author != this.props.username ? '' :
-          <div className="btn-group">
-            <label className="btn btn-primary"
-              title="Click the text to edit your post"
-              disabled={this.disabled}
-              onClick={() => {
-                this.props.dispatch(editArticle(this.props._id, this.newMessage))
-                this.disabled = true
-                this.forceUpdate()
-              }}>
-              Edit post
-            </label>
-          </div>
-        }
-        </div>
-
-        <div className="btn-group btn-group-justified">
-          <div className="btn-group"></div>
-        { !this.addComment ? '' :
-          <div className="btn-group">
+      <tr>
+        <td>
+          <div className="card">
             <div>
-              <textarea className="newPostText"
-                cols="80" rows="4" placeholder="your comment"
-                value={this.newComment}
-                onChange={(e) => {
-                  this.newComment = e.target.value
-                  this.forceUpdate()
-              }}>
-              </textarea>
-              <label className="btn btn-success"
-                disabled={ this.newComment.length == 0 }
-                onClick={() => {
-                  if (this.newComment.length > 0)
-                    this.props.dispatch(editArticle(this.props._id, this.newComment, -1))
-                    this.newComment = ''
-                    this.addComment = false
+              <p>
+                <img className="followingImage" src={ this.props.avatar }/>
+                <span>{this.props.author} said
+                on {date.format('MM-DD-YYYY')} at {date.format('HH:mm:ss')}</span>
+              </p>
+              <p>
+                <ContentEditable className="media-body" html={this.props.text}
+                  contentEditable={this.props.username == this.props.author}
+                  tooltip={this.props.username == this.props.author ? 'click to edit' : ''}
+                  onChange={(e) => {
+                    this.newMessage = e.target.value
+                    this.disabled = this.props.text == this.newMessage
                     this.forceUpdate()
-                }}>
-                Make the comment
-              </label>
+                  }}/>
+              </p>
+              <p>
+                <img src={this.props.img} width="60%" />
+              </p>
+              <div>
+                  <p>
+                    <label className="cardbutton"
+                      onClick={() => {
+                        this.hideComments = !this.hideComments
+                        this.forceUpdate()
+                      }}>
+                      { this.hideComments ? 'Show' : 'Hide' } Comments ({ this.props.comments.length })
+                    </label>
+                    &nbsp;&nbsp;&nbsp;
+                    <label className="cardbutton"
+                      onClick={() => { this.addComment = !this.addComment; this.forceUpdate() }}>
+                      { this.addComment ? 'Cancel' : 'Add a comment' }
+                    </label>
+                    &nbsp;&nbsp;&nbsp;
+                    { this.props.author != this.props.username ? '' :               
+                      <label className="cardbutton"
+                        title="Click the text to edit your post"
+                        disabled={this.disabled}
+                        onClick={() => {
+                          this.props.dispatch(editArticle(this.props._id, this.newMessage))
+                          this.disabled = true
+                          this.forceUpdate()
+                        }}>
+                        Edit post
+                      </label> 
+                    }
+                  </p>
+              </div>
+              <div>
+                { !this.addComment ? '' :
+                  <div>
+                    <div>
+                      <textarea className="newPostText"
+                        cols="80" rows="4" placeholder="your comment"
+                        value={this.newComment}
+                        onChange={(e) => {
+                          this.newComment = e.target.value
+                          this.forceUpdate()
+                      }}>
+                      </textarea>
+                      <label className="cardbutton"
+                        disabled={ this.newComment.length == 0 }
+                        onClick={() => {
+                          if (this.newComment.length > 0)
+                            this.props.dispatch(editArticle(this.props._id, this.newComment, -1))
+                            this.newComment = ''
+                            this.addComment = false
+                            this.forceUpdate()
+                        }}>
+                        Make the comment
+                      </label>
+                    </div>
+                  </div>
+                }
+              </div>
+              { this.hideComments ? '' : this.props.comments.sort((a,b) => {
+                if (a.date < b.date)
+                  return 1
+                if (a.date > b.date)
+                  return -1
+                return 0
+              }).map((comment) =>
+                  <Comment key={comment.commentId} articleId={this.props._id} username={this.props.username}
+                    commentId={comment.commentId} author={comment.author} date={comment.date}
+                    text={comment.text} avatar={comment.avatar} />
+              )}
             </div>
           </div>
-        }
-          <div className="btn-group"></div>
-        </div>
-
-        { this.hideComments ? '' : this.props.comments.sort((a,b) => {
-          if (a.date < b.date)
-            return 1
-          if (a.date > b.date)
-            return -1
-          return 0
-        }).map((comment) =>
-            <Comment key={comment.commentId} articleId={this.props._id} username={this.props.username}
-              commentId={comment.commentId} author={comment.author} date={comment.date}
-              text={comment.text} avatar={comment.avatar} />
-        )}
-      </div>
-    </div>
+        </td>
+      </tr>   
   )}
 }
 

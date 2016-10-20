@@ -5,38 +5,26 @@ import { updateHeadline } from '../profile/profileActions'
 class Headline extends Component {
 
     render() { return (
-        <div>
-            <nav>
+        <div className="user_card">
+            <img width="100%" src={ this.props.avatar }/>
+            <p id="username">{ this.props.username }</p>
+            <p id="headline">{ this.props.headline }</p>
+            <div>
                 <div>
-                    <h1>Rice Book</h1>
+                    <p><input className="headfield" id="headline" type="text"
+                        placeholder="update your headline"
+                        ref={ (node) => { this.newHeadline = node }}
+                        onChange={() => this.forceUpdate()} /></p>
                 </div>
-                <div>
-                    <input type="button" className="button" value="Profile" id="login" />
-                    <input type="button" className="button" value="Logout" id="logout" />
-                </div>
-            </nav>
-            <br /><br />
-            <div className="user_card">
-                <img width="100%" src={ this.props.avatar }/>
-                <p id="username">{ this.props.username }</p>
-                <p id="headline">{ this.props.headline }</p>
-                <div>
+                { !(this.newHeadline && this.newHeadline.value.length > 0) ? '' :
                     <div>
-                        <p><input className="headfield" id="headline" type="text"
-                            placeholder="update your headline"
-                            ref={ (node) => { this.newHeadline = node }}
-                            onChange={() => this.forceUpdate()} /></p>
+                        <input className="udtbtn" type="button" value="Update your Headline"
+                            onClick={() => {
+                                this.props.dispatch(updateHeadline(this.newHeadline.value))
+                                this.newHeadline.value = ''
+                            }}/>
                     </div>
-                    { !(this.newHeadline && this.newHeadline.value.length > 0) ? '' :
-                        <div>
-                            <input className="udtbtn" type="button" value="Update your Headline"
-                                onClick={() => {
-                                    this.props.dispatch(updateHeadline(this.newHeadline.value))
-                                    this.newHeadline.value = ''
-                                }}/>
-                        </div>
-                    }
-                </div>
+                }
             </div>
         </div>
     )}

@@ -20,51 +20,44 @@ class NewArticle extends Component {
     }
 
     render() { return (
-        <div>
-            <div className="row">
-                <div className="col-sm-12">
-                    <div>Say something...</div>
-                    <textarea class="newPostBody"
-                      cols="80" rows="4" placeholder="share what's new..."
+        <tr>
+            <td>
+                <div className="card">
+                    <p>Say something...</p>
+                    <p><textarea class="postarea"
+                      placeholder="Add your post here..."
                       value={ this.message }
                       onChange={(e) => {
                         this.message = e.target.value
                         this.forceUpdate();
-                    }}>
-                    </textarea>
-                </div>
-            </div>
-
-            <div className="row">
-                <div className="col-sm-5">
-                    Add a picture
-                    <input type="file" id="articleImage" accept="image/*" onChange={(e) => this.handleImageChange(e)}/>
-                </div>
-            { !this.file && !this.message ? '' :
-                <div className="col-sm-2">
-                    <div className="text-right">
-                        <input className="btn btn-primary" type="button" value="Publish it"
-                            onClick={() => {
-                                this.props.dispatch(uploadArticle(this.message, this.file))
-                                this.message = ''
-                                this.file = undefined
-                                this.forceUpdate()
-                            }}/>
+                    }}></textarea></p>
+                    <div>
+                        <p>Add a picture</p>
+                        <input type="file" id="articleImage" accept="image/*" onChange={(e) => this.handleImageChange(e)}/>
+                        { !this.file && !this.message ? '' :
+                            <div>
+                                <input className="cardbutton" type="button" value="Publish it"
+                                    onClick={() => {
+                                        this.props.dispatch(uploadArticle(this.message, this.file))
+                                        this.message = ''
+                                        this.file = undefined
+                                        this.forceUpdate()
+                                    }}/>
+                            </div>
+                        }
                     </div>
-                </div>
-            }
-            </div>
-
-        { !this.file ? '' :
-            <div className="row">
-                <img className="postImage" src={this.preview}/>
-                <div>
-                { this.file.webkitRelativePath || this.file.name }<br/>
-                ({ parseInt(this.file.size / 1024 * 100)/100.0 } kB)
-                </div>
-            </div>
-        }
-        </div>
+                    { !this.file ? '' :
+                        <div className="row">
+                            <img className="postImage" src={this.preview}/>
+                            <div>
+                            { this.file.webkitRelativePath || this.file.name }<br/>
+                            ({ parseInt(this.file.size / 1024 * 100)/100.0 } kB)
+                            </div>
+                        </div>
+                    }
+                </div> 
+            </td>
+        </tr>
     )}
 }
 

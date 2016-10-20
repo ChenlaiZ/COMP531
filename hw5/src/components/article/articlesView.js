@@ -9,33 +9,28 @@ import { searchKeyword } from './articleActions'
 const ArticlesView = ({username, articles, dispatch}) => {  
   let keyword = ''
   return (
-    <div className="col-sm-9" >
-
-      <NewArticle/>
-
-      <div className="row">&nbsp;</div>
-
-      <div className="row">
-        <div className="col-sm-7">
-          <input className="form-control" type="text" placeholder="search your feed"
-            ref={(node) => keyword = node }
-            onChange={() => { dispatch(searchKeyword(keyword.value)) }}/>
-        </div>
-      </div>
-
-
-      { articles.sort((a,b) => {
-        if (a.date < b.date)
-          return 1
-        if (a.date > b.date)
-          return -1
-        return 0
-      }).map((article) =>
-        <Article key={article._id} _id={article._id} username={username} author={article.author}
-          date={article.date} text={article.text} img={article.img} avatar={article.avatar}
-          comments={article.comments}/>
-      )}
-
+    <div>
+      <table className="card_table">
+        <NewArticle/>
+        <tr>
+          <td>
+            <p><input type="text" className="searchfield" placeholder="Search Posts"
+              ref={(node) => keyword = node }
+              onChange={() => { dispatch(searchKeyword(keyword.value)) }}/></p>
+          </td>
+        </tr>
+        { articles.sort((a,b) => {
+          if (a.date < b.date)
+            return 1
+          if (a.date > b.date)
+            return -1
+          return 0
+        }).map((article) =>
+          <Article key={article._id} _id={article._id} username={username} author={article.author}
+            date={article.date} text={article.text} img={article.img} avatar={article.avatar}
+            comments={article.comments}/>
+        )}
+      </table>
     </div>
   )
 }

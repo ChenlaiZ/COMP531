@@ -38,7 +38,9 @@ const Messages = connect(
 const Profile = () => {
     return (
         <div>
-            <h1>Customer Profile Page</h1>
+            <div>&nbsp;</div>
+            <div>&nbsp;</div>
+            <h1><b>Customer Profile Page</b></h1>
             <Avatar/>
             <Messages/>
             <ProfileForm/>
