@@ -18,11 +18,11 @@ class Headline extends Component {
                 </div>
                 { !(this.newHeadline && this.newHeadline.value.length > 0) ? '' :
                     <div>
-                        <input className="udtbtn" type="button" value="Update your Headline"
+                        <p><input className="udtbtn" type="button" value="Update your Headline"
                             onClick={() => {
                                 this.props.dispatch(updateHeadline(this.newHeadline.value))
                                 this.newHeadline.value = ''
-                            }}/>
+                            }}/></p>
                     </div>
                 }
             </div>

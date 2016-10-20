@@ -3,6 +3,8 @@ import React from 'react'
 import Headline from './headline'
 import Following from './following'
 import ArticlesView from '../article/articlesView'
+import { navToMain, navToProfile } from '../../actions'
+import { logout } from '../auth/authActions'
 
 const Main = () => (
     // This is the main view.
@@ -10,20 +12,9 @@ const Main = () => (
     // their feed of articles (with a search fiilter),
     // and their list of followers.
     <div>
-        <div>&nbsp;</div>
-        <div>&nbsp;</div>
-        <div>&nbsp;</div>
-        <nav>
-            <div>
-                <h1><b>Rice Book</b></h1>
-            </div>
-            <div>
-                &nbsp;&nbsp;
-                <input type="button" className="button" value="Profile" id="login" />
-                &nbsp;&nbsp;
-                <input type="button" className="button" value="Logout" id="logout" />
-            </div>
-        </nav>
+        <div>
+            <h1><b>Rice Book</b></h1>
+        </div>
         <div>&nbsp;</div>
         <div className="left_box">
             <Headline/>

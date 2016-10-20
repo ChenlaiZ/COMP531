@@ -60,19 +60,29 @@ h1{
     font-family: "Times New Roman", Times, serif;
 }
 
-h3 {
-    font-size: 25px;
-    text-align: center;
-    font-family: "Times New Roman", Times, serif;
-}
 
-p {
+p{
     text-align: center;
     font-family: "Times New Roman", Times, serif;
 }
 
 span{
     color: saddlebrown;
+}
+
+h3 {
+    font-size: 25px;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+}
+
+h4{  
+    font-size: 15px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+#articleImage{
+    margin: auto;
 }
 
 .alert_error{
@@ -121,7 +131,7 @@ span{
 }
 
 .btnprofile{
-    margin-left:38%; 
+    margin-left: 45%; 
 }
 
 .button {
@@ -141,7 +151,7 @@ span{
     padding: 10px 20px;
     text-align: center;
     display: inline-block;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .left_box{
@@ -172,7 +182,7 @@ span{
 }
 
 .user_card p{
-    align: center;
+    text-align: center;
 }
 
 .headfield{
@@ -188,7 +198,7 @@ span{
 
 .searchfield{
     width: 80%;
-    height: 15px;
+    height: 25px;
 }
 
 .card {

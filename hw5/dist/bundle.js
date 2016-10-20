@@ -31516,29 +31516,63 @@
 	        // and their list of followers.
 	        _react2.default.createElement(
 	            'div',
-	            { className: 'row' },
+	            null,
 	            _react2.default.createElement(
 	                'div',
-	                { className: 'row' },
+	                null,
 	                '\xA0'
 	            ),
 	            _react2.default.createElement(
 	                'div',
-	                { className: 'row' },
+	                null,
 	                '\xA0'
 	            ),
 	            _react2.default.createElement(
 	                'div',
-	                { className: 'row' },
+	                null,
+	                '\xA0'
+	            ),
+	            _react2.default.createElement(
+	                'nav',
+	                null,
+	                _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    _react2.default.createElement(
+	                        'h1',
+	                        null,
+	                        _react2.default.createElement(
+	                            'b',
+	                            null,
+	                            'Rice Book'
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    '\xA0\xA0',
+	                    _react2.default.createElement('input', { type: 'button', className: 'button', value: 'Profile', id: 'login' }),
+	                    '\xA0\xA0',
+	                    _react2.default.createElement('input', { type: 'button', className: 'button', value: 'Logout', id: 'logout' })
+	                )
+	            ),
+	            _react2.default.createElement(
+	                'div',
+	                null,
 	                '\xA0'
 	            ),
 	            _react2.default.createElement(
 	                'div',
-	                { className: 'col-sm-3' },
+	                { className: 'left_box' },
 	                _react2.default.createElement(_headline2.default, null),
 	                _react2.default.createElement(_following2.default, null)
 	            ),
-	            _react2.default.createElement(_articlesView2.default, null)
+	            _react2.default.createElement(
+	                'div',
+	                { className: 'right_box' },
+	                _react2.default.createElement(_articlesView2.default, null)
+	            )
 	        )
 	    );
 	};
@@ -31596,72 +31630,41 @@
 	
 	            return _react2.default.createElement(
 	                'div',
-	                null,
+	                { className: 'user_card' },
+	                _react2.default.createElement('img', { width: '100%', src: this.props.avatar }),
+	                _react2.default.createElement(
+	                    'p',
+	                    { id: 'username' },
+	                    this.props.username
+	                ),
+	                _react2.default.createElement(
+	                    'p',
+	                    { id: 'headline' },
+	                    this.props.headline
+	                ),
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'row' },
+	                    null,
 	                    _react2.default.createElement(
 	                        'div',
-	                        { className: 'col-sm-12' },
+	                        null,
 	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'text-center' },
-	                            _react2.default.createElement(
-	                                'h4',
-	                                { id: 'username' },
-	                                this.props.username
-	                            )
+	                            'p',
+	                            null,
+	                            _react2.default.createElement('input', { className: 'headfield', id: 'headline', type: 'text',
+	                                placeholder: 'update your headline',
+	                                ref: function ref(node) {
+	                                    _this2.newHeadline = node;
+	                                },
+	                                onChange: function onChange() {
+	                                    return _this2.forceUpdate();
+	                                } })
 	                        )
-	                    )
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'row' },
-	                    _react2.default.createElement('div', { className: 'col-sm-2' }),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'col-sm-8' },
-	                        _react2.default.createElement('img', { width: '100%', src: this.props.avatar })
-	                    ),
-	                    _react2.default.createElement('div', { className: 'col-sm-2' })
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'row' },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'col-sm-12' },
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'text-center' },
-	                            _react2.default.createElement(
-	                                'h4',
-	                                { id: 'headline' },
-	                                this.props.headline
-	                            )
-	                        )
-	                    )
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'row' },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'col-sm-12' },
-	                        _react2.default.createElement('input', { className: 'form-control', id: 'headline', type: 'text',
-	                            placeholder: 'update your headline',
-	                            ref: function ref(node) {
-	                                _this2.newHeadline = node;
-	                            },
-	                            onChange: function onChange() {
-	                                return _this2.forceUpdate();
-	                            } })
 	                    ),
 	                    !(this.newHeadline && this.newHeadline.value.length > 0) ? '' : _react2.default.createElement(
 	                        'div',
-	                        { className: 'col-sm-12' },
-	                        _react2.default.createElement('input', { className: 'btn btn-primary',
-	                            type: 'button', value: 'Update your Headline',
+	                        null,
+	                        _react2.default.createElement('input', { className: 'udtbtn', type: 'button', value: 'Update your Headline',
 	                            onClick: function onClick() {
 	                                _this2.props.dispatch((0, _profileActions.updateHeadline)(_this2.newHeadline.value));
 	                                _this2.newHeadline.value = '';
@@ -31725,45 +31728,33 @@
 	    var dispatch = _ref.dispatch;
 	    return _react2.default.createElement(
 	        'div',
-	        { className: 'row', name: 'follower' },
+	        { className: 'follower_card', name: 'follower' },
+	        _react2.default.createElement('img', { src: avatar }),
+	        _react2.default.createElement(
+	            'p',
+	            null,
+	            name
+	        ),
+	        _react2.default.createElement(
+	            'p',
+	            null,
+	            _react2.default.createElement(
+	                'em',
+	                null,
+	                headline
+	            )
+	        ),
+	        _react2.default.createElement(
+	            'p',
+	            null,
+	            _react2.default.createElement('input', { className: 'udtbtn', type: 'button', value: 'Unfollow', onClick: function onClick() {
+	                    dispatch((0, _followingActions.delFollower)(name));
+	                } })
+	        ),
 	        _react2.default.createElement(
 	            'div',
 	            null,
 	            '\xA0'
-	        ),
-	        _react2.default.createElement(
-	            'div',
-	            { className: 'media-left' },
-	            _react2.default.createElement('img', { className: 'followingImage', src: avatar })
-	        ),
-	        _react2.default.createElement(
-	            'div',
-	            { className: 'media-body' },
-	            _react2.default.createElement(
-	                'div',
-	                null,
-	                _react2.default.createElement(
-	                    'strong',
-	                    null,
-	                    name
-	                )
-	            ),
-	            _react2.default.createElement(
-	                'div',
-	                null,
-	                _react2.default.createElement(
-	                    'em',
-	                    null,
-	                    headline
-	                )
-	            )
-	        ),
-	        _react2.default.createElement(
-	            'div',
-	            { className: 'media-right' },
-	            _react2.default.createElement('span', { className: 'glyphicon glyphicon-remove', onClick: function onClick() {
-	                    dispatch((0, _followingActions.delFollower)(name));
-	                } })
 	        )
 	    );
 	};
@@ -31791,56 +31782,58 @@
 	
 	            return _react2.default.createElement(
 	                'div',
-	                null,
+	                { className: 'user_card' },
 	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'col-sm-2' },
-	                    '\xA0'
+	                    'h3',
+	                    null,
+	                    _react2.default.createElement(
+	                        'b',
+	                        null,
+	                        'Following List:'
+	                    )
 	                ),
+	                Object.keys(this.props.followers).sort().map(function (f) {
+	                    return _this2.props.followers[f];
+	                }).map(function (follower) {
+	                    return _react2.default.createElement(Follower, { key: follower.name,
+	                        name: follower.name, avatar: follower.avatar, headline: follower.headline,
+	                        dispatch: _this2.props.dispatch });
+	                }),
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'col-sm-8' },
-	                    Object.keys(this.props.followers).sort().map(function (f) {
-	                        return _this2.props.followers[f];
-	                    }).map(function (follower) {
-	                        return _react2.default.createElement(Follower, { key: follower.name,
-	                            name: follower.name, avatar: follower.avatar, headline: follower.headline,
-	                            dispatch: _this2.props.dispatch });
-	                    }),
+	                    null,
 	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'row' },
-	                        '\xA0'
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'row' },
-	                        _react2.default.createElement('input', { className: 'form-control', type: 'text',
-	                            placeholder: 'add a follower',
+	                        'p',
+	                        null,
+	                        _react2.default.createElement('input', { type: 'text', placeholder: 'add a follower',
 	                            ref: function ref(node) {
 	                                return _this2.newFollower = node;
 	                            },
 	                            onChange: function onChange(e) {
 	                                _this2.forceUpdate();
-	                            } }),
-	                        !(this.newFollower && this.newFollower.value && this.newFollower.value.length > 0) ? '' : _react2.default.createElement('input', { className: 'btn btn-primary', type: 'button',
+	                            } })
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        '\xA0'
+	                    ),
+	                    !(this.newFollower && this.newFollower.value && this.newFollower.value.length > 0) ? '' : _react2.default.createElement(
+	                        'p',
+	                        null,
+	                        _react2.default.createElement('input', { type: 'button',
 	                            onClick: function onClick() {
 	                                _this2.props.dispatch((0, _followingActions.addFollower)(_this2.newFollower.value));
 	                                _this2.newFollower.value = '';
 	                                _this2.forceUpdate();
 	                            },
-	                            value: 'add follower' }),
-	                        this.props.error.length == 0 ? '' : _react2.default.createElement(
-	                            'div',
-	                            { className: 'alert alert-danger' },
-	                            this.props.error
-	                        )
+	                            value: 'Add' })
+	                    ),
+	                    this.props.error.length == 0 ? '' : _react2.default.createElement(
+	                        'div',
+	                        { className: 'alert_error' },
+	                        this.props.error
 	                    )
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'col-sm-2' },
-	                    '\xA0'
 	                )
 	            );
 	        }
@@ -31906,27 +31899,26 @@
 	
 	  var keyword = '';
 	  return _react2.default.createElement(
-	    'div',
-	    { className: 'col-sm-9' },
+	    'table',
+	    { className: 'card_table' },
 	    _react2.default.createElement(_newArticle2.default, null),
 	    _react2.default.createElement(
-	      'div',
-	      { className: 'row' },
-	      '\xA0'
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'row' },
+	      'tr',
+	      null,
 	      _react2.default.createElement(
-	        'div',
-	        { className: 'col-sm-7' },
-	        _react2.default.createElement('input', { className: 'form-control', type: 'text', placeholder: 'search your feed',
-	          ref: function ref(node) {
-	            return keyword = node;
-	          },
-	          onChange: function onChange() {
-	            dispatch((0, _articleActions.searchKeyword)(keyword.value));
-	          } })
+	        'td',
+	        null,
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          _react2.default.createElement('input', { type: 'text', className: 'searchfield', placeholder: 'Search Posts',
+	            ref: function ref(node) {
+	              return keyword = node;
+	            },
+	            onChange: function onChange() {
+	              dispatch((0, _articleActions.searchKeyword)(keyword.value));
+	            } })
+	        )
 	      )
 	    ),
 	    articles.sort(function (a, b) {
@@ -32040,132 +32032,132 @@
 	
 	      var date = (0, _moment2.default)(new Date(this.props.date));
 	      return _react2.default.createElement(
-	        'div',
-	        { className: 'row', name: 'article' },
+	        'tr',
+	        null,
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'col-sm-11' },
-	          _react2.default.createElement(
-	            'h3',
-	            null,
-	            _react2.default.createElement('img', { className: 'followingImage', src: this.props.avatar }),
-	            this.props.author,
-	            ' said on ',
-	            date.format('MM-DD-YYYY'),
-	            ' at ',
-	            date.format('HH:mm:ss')
-	          ),
+	          'td',
+	          null,
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'row' },
+	            { className: 'card' },
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'col-sm-9' },
+	              null,
 	              _react2.default.createElement(
-	                'div',
-	                { className: 'media-left' },
-	                _react2.default.createElement('img', { className: 'postImage', src: this.props.img })
+	                'p',
+	                null,
+	                _react2.default.createElement('img', { className: 'followingImage', src: this.props.avatar }),
+	                _react2.default.createElement(
+	                  'span',
+	                  null,
+	                  this.props.author,
+	                  ' said on ',
+	                  date.format('MM-DD-YYYY'),
+	                  ' at ',
+	                  date.format('HH:mm:ss')
+	                )
 	              ),
-	              _react2.default.createElement(_contentEditable2.default, { className: 'media-body', html: this.props.text,
-	                contentEditable: this.props.username == this.props.author,
-	                tooltip: this.props.username == this.props.author ? 'click to edit' : '',
-	                onChange: function onChange(e) {
-	                  _this2.newMessage = e.target.value;
-	                  _this2.disabled = _this2.props.text == _this2.newMessage;
-	                  _this2.forceUpdate();
-	                } })
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'btn-group btn-group-justified' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'btn-group' },
 	              _react2.default.createElement(
-	                'label',
-	                { className: 'btn btn-warning',
-	                  onClick: function onClick() {
-	                    _this2.hideComments = !_this2.hideComments;
+	                'p',
+	                null,
+	                _react2.default.createElement(_contentEditable2.default, { className: 'media-body', html: this.props.text,
+	                  contentEditable: this.props.username == this.props.author,
+	                  tooltip: this.props.username == this.props.author ? 'click to edit' : '',
+	                  onChange: function onChange(e) {
+	                    _this2.newMessage = e.target.value;
+	                    _this2.disabled = _this2.props.text == _this2.newMessage;
 	                    _this2.forceUpdate();
-	                  } },
-	                this.hideComments ? 'Show' : 'Hide',
-	                ' Comments (',
-	                this.props.comments.length,
-	                ')'
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'btn-group' },
+	                  } })
+	              ),
 	              _react2.default.createElement(
-	                'label',
-	                { className: 'btn btn-success',
-	                  onClick: function onClick() {
-	                    _this2.addComment = !_this2.addComment;_this2.forceUpdate();
-	                  } },
-	                this.addComment ? 'Cancel' : 'Add a comment'
-	              )
-	            ),
-	            this.props.author != this.props.username ? '' : _react2.default.createElement(
-	              'div',
-	              { className: 'btn-group' },
-	              _react2.default.createElement(
-	                'label',
-	                { className: 'btn btn-primary',
-	                  title: 'Click the text to edit your post',
-	                  disabled: this.disabled,
-	                  onClick: function onClick() {
-	                    _this2.props.dispatch((0, _articleActions.editArticle)(_this2.props._id, _this2.newMessage));
-	                    _this2.disabled = true;
-	                    _this2.forceUpdate();
-	                  } },
-	                'Edit post'
-	              )
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'btn-group btn-group-justified' },
-	            _react2.default.createElement('div', { className: 'btn-group' }),
-	            !this.addComment ? '' : _react2.default.createElement(
-	              'div',
-	              { className: 'btn-group' },
+	                'p',
+	                null,
+	                _react2.default.createElement('img', { src: this.props.img, width: '60%' })
+	              ),
 	              _react2.default.createElement(
 	                'div',
 	                null,
-	                _react2.default.createElement('textarea', { className: 'newPostText',
-	                  cols: '80', rows: '4', placeholder: 'your comment',
-	                  value: this.newComment,
-	                  onChange: function onChange(e) {
-	                    _this2.newComment = e.target.value;
-	                    _this2.forceUpdate();
-	                  } }),
 	                _react2.default.createElement(
-	                  'label',
-	                  { className: 'btn btn-success',
-	                    disabled: this.newComment.length == 0,
-	                    onClick: function onClick() {
-	                      if (_this2.newComment.length > 0) _this2.props.dispatch((0, _articleActions.editArticle)(_this2.props._id, _this2.newComment, -1));
-	                      _this2.newComment = '';
-	                      _this2.addComment = false;
-	                      _this2.forceUpdate();
-	                    } },
-	                  'Make the comment'
+	                  'p',
+	                  null,
+	                  _react2.default.createElement(
+	                    'label',
+	                    { className: 'cardbutton',
+	                      onClick: function onClick() {
+	                        _this2.hideComments = !_this2.hideComments;
+	                        _this2.forceUpdate();
+	                      } },
+	                    this.hideComments ? 'Show' : 'Hide',
+	                    ' Comments (',
+	                    this.props.comments.length,
+	                    ')'
+	                  ),
+	                  '\xA0\xA0\xA0',
+	                  _react2.default.createElement(
+	                    'label',
+	                    { className: 'cardbutton',
+	                      onClick: function onClick() {
+	                        _this2.addComment = !_this2.addComment;_this2.forceUpdate();
+	                      } },
+	                    this.addComment ? 'Cancel' : 'Add a comment'
+	                  ),
+	                  '\xA0\xA0\xA0',
+	                  this.props.author != this.props.username ? '' : _react2.default.createElement(
+	                    'label',
+	                    { className: 'cardbutton',
+	                      title: 'Click the text to edit your post',
+	                      disabled: this.disabled,
+	                      onClick: function onClick() {
+	                        _this2.props.dispatch((0, _articleActions.editArticle)(_this2.props._id, _this2.newMessage));
+	                        _this2.disabled = true;
+	                        _this2.forceUpdate();
+	                      } },
+	                    'Edit post'
+	                  )
 	                )
-	              )
-	            ),
-	            _react2.default.createElement('div', { className: 'btn-group' })
-	          ),
-	          this.hideComments ? '' : this.props.comments.sort(function (a, b) {
-	            if (a.date < b.date) return 1;
-	            if (a.date > b.date) return -1;
-	            return 0;
-	          }).map(function (comment) {
-	            return _react2.default.createElement(_comment2.default, { key: comment.commentId, articleId: _this2.props._id, username: _this2.props.username,
-	              commentId: comment.commentId, author: comment.author, date: comment.date,
-	              text: comment.text, avatar: comment.avatar });
-	          })
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                null,
+	                !this.addComment ? '' : _react2.default.createElement(
+	                  'div',
+	                  null,
+	                  _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    _react2.default.createElement('textarea', { className: 'newPostText',
+	                      cols: '80', rows: '4', placeholder: 'your comment',
+	                      value: this.newComment,
+	                      onChange: function onChange(e) {
+	                        _this2.newComment = e.target.value;
+	                        _this2.forceUpdate();
+	                      } }),
+	                    _react2.default.createElement(
+	                      'label',
+	                      { className: 'cardbutton',
+	                        disabled: this.newComment.length == 0,
+	                        onClick: function onClick() {
+	                          if (_this2.newComment.length > 0) _this2.props.dispatch((0, _articleActions.editArticle)(_this2.props._id, _this2.newComment, -1));
+	                          _this2.newComment = '';
+	                          _this2.addComment = false;
+	                          _this2.forceUpdate();
+	                        } },
+	                      'Make the comment'
+	                    )
+	                  )
+	                )
+	              ),
+	              this.hideComments ? '' : this.props.comments.sort(function (a, b) {
+	                if (a.date < b.date) return 1;
+	                if (a.date > b.date) return -1;
+	                return 0;
+	              }).map(function (comment) {
+	                return _react2.default.createElement(_comment2.default, { key: comment.commentId, articleId: _this2.props._id, username: _this2.props.username,
+	                  commentId: comment.commentId, author: comment.author, date: comment.date,
+	                  text: comment.text, avatar: comment.avatar });
+	              })
+	            )
+	          )
 	        )
 	      );
 	    }
@@ -46992,7 +46984,7 @@
 	                        { className: 'media-right' },
 	                        _react2.default.createElement(
 	                            'span',
-	                            { className: 'btn btn-primary',
+	                            { className: 'cardbutton',
 	                                title: 'Click the text to edit your comment',
 	                                disabled: this.disabled,
 	                                onClick: function onClick() {
@@ -47165,67 +47157,71 @@
 	            var _this3 = this;
 	
 	            return _react2.default.createElement(
-	                'div',
+	                'tr',
 	                null,
 	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'row' },
+	                    'td',
+	                    null,
 	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'col-sm-12' },
-	                        _react2.default.createElement(
-	                            'div',
-	                            null,
-	                            'Say something...'
-	                        ),
-	                        _react2.default.createElement('textarea', { 'class': 'newPostBody',
-	                            cols: '80', rows: '4', placeholder: 'share what\'s new...',
-	                            value: this.message,
-	                            onChange: function onChange(e) {
-	                                _this3.message = e.target.value;
-	                                _this3.forceUpdate();
-	                            } })
-	                    )
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'row' },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'col-sm-5' },
-	                        'Add a picture',
-	                        _react2.default.createElement('input', { type: 'file', id: 'articleImage', accept: 'image/*', onChange: function onChange(e) {
-	                                return _this3.handleImageChange(e);
-	                            } })
-	                    ),
-	                    !this.file && !this.message ? '' : _react2.default.createElement(
-	                        'div',
-	                        { className: 'col-sm-2' },
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'text-right' },
-	                            _react2.default.createElement('input', { className: 'btn btn-primary', type: 'button', value: 'Publish it',
-	                                onClick: function onClick() {
-	                                    _this3.props.dispatch((0, _articleActions.uploadArticle)(_this3.message, _this3.file));
-	                                    _this3.message = '';
-	                                    _this3.file = undefined;
-	                                    _this3.forceUpdate();
-	                                } })
-	                        )
-	                    )
-	                ),
-	                !this.file ? '' : _react2.default.createElement(
-	                    'div',
-	                    { className: 'row' },
-	                    _react2.default.createElement('img', { className: 'postImage', src: this.preview }),
-	                    _react2.default.createElement(
-	                        'div',
+	                        'p',
 	                        null,
-	                        this.file.webkitRelativePath || this.file.name,
-	                        _react2.default.createElement('br', null),
-	                        '(',
-	                        parseInt(this.file.size / 1024 * 100) / 100.0,
-	                        ' kB)'
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'card' },
+	                            _react2.default.createElement(
+	                                'p',
+	                                null,
+	                                'Say something...'
+	                            ),
+	                            _react2.default.createElement(
+	                                'p',
+	                                null,
+	                                _react2.default.createElement('textarea', { 'class': 'postarea',
+	                                    placeholder: 'Add your post here...',
+	                                    value: this.message,
+	                                    onChange: function onChange(e) {
+	                                        _this3.message = e.target.value;
+	                                        _this3.forceUpdate();
+	                                    } })
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'p',
+	                                    null,
+	                                    'Add a picture'
+	                                ),
+	                                _react2.default.createElement('input', { type: 'file', id: 'articleImage', accept: 'image/*', onChange: function onChange(e) {
+	                                        return _this3.handleImageChange(e);
+	                                    } }),
+	                                !this.file && !this.message ? '' : _react2.default.createElement(
+	                                    'div',
+	                                    null,
+	                                    _react2.default.createElement('input', { className: 'cardbutton', type: 'button', value: 'Publish it',
+	                                        onClick: function onClick() {
+	                                            _this3.props.dispatch((0, _articleActions.uploadArticle)(_this3.message, _this3.file));
+	                                            _this3.message = '';
+	                                            _this3.file = undefined;
+	                                            _this3.forceUpdate();
+	                                        } })
+	                                )
+	                            ),
+	                            !this.file ? '' : _react2.default.createElement(
+	                                'div',
+	                                { className: 'row' },
+	                                _react2.default.createElement('img', { className: 'postImage', src: this.preview }),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    null,
+	                                    this.file.webkitRelativePath || this.file.name,
+	                                    _react2.default.createElement('br', null),
+	                                    '(',
+	                                    parseInt(this.file.size / 1024 * 100) / 100.0,
+	                                    ' kB)'
+	                                )
+	                            )
+	                        )
 	                    )
 	                )
 	            );
@@ -47752,9 +47748,23 @@
 	        'div',
 	        null,
 	        _react2.default.createElement(
+	            'div',
+	            null,
+	            '\xA0'
+	        ),
+	        _react2.default.createElement(
+	            'div',
+	            null,
+	            '\xA0'
+	        ),
+	        _react2.default.createElement(
 	            'h1',
 	            null,
-	            'Customer Profile Page'
+	            _react2.default.createElement(
+	                'b',
+	                null,
+	                'Customer Profile Page'
+	            )
 	        ),
 	        _react2.default.createElement(_avatar2.default, null),
 	        _react2.default.createElement(Messages, null),
@@ -48036,68 +48046,57 @@
 	
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'user_card' },
-	                _react2.default.createElement('img', { width: '100%', src: this.props.img }),
-	                _react2.default.createElement(
-	                    'em',
-	                    null,
-	                    'Upload new profile avatar'
-	                ),
-	                _react2.default.createElement(
-	                    'p',
-	                    null,
-	                    _react2.default.createElement('input', { type: 'file', accept: 'image/*', onChange: function onChange(e) {
-	                            return _this3.handleImageChange(e);
-	                        } })
-	                ),
+	                { className: 'left_box' },
 	                _react2.default.createElement(
 	                    'div',
-	                    null,
-	                    !this.file ? '' : _react2.default.createElement(
+	                    { className: 'user_card' },
+	                    _react2.default.createElement('img', { width: '100%', src: this.props.img }),
+	                    _react2.default.createElement(
+	                        'em',
+	                        null,
+	                        'Upload new profile avatar'
+	                    ),
+	                    _react2.default.createElement(
+	                        'p',
+	                        null,
+	                        _react2.default.createElement('input', { type: 'file', accept: 'image/*', onChange: function onChange(e) {
+	                                return _this3.handleImageChange(e);
+	                            } })
+	                    ),
+	                    _react2.default.createElement(
 	                        'div',
 	                        null,
-	                        _react2.default.createElement(
+	                        !this.file ? '' : _react2.default.createElement(
 	                            'div',
 	                            null,
-	                            _react2.default.createElement('img', { width: '100%', src: this.preview })
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            null,
-	                            this.file.webkitRelativePath || this.file.name,
-	                            ' (',
-	                            parseInt(this.file.size / 1024 * 100) / 100.0,
-	                            ' kB)'
-	                        ),
-	                        _react2.default.createElement('input', { className: 'card_button', type: 'button', value: 'Update Profile Picture', onClick: function onClick() {
-	                                _this3.props.dispatch((0, _profileActions.uploadImage)(_this3.file));
-	                            } })
+	                            _react2.default.createElement(
+	                                'div',
+	                                null,
+	                                _react2.default.createElement('img', { width: '100%', src: this.preview })
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                null,
+	                                this.file.webkitRelativePath || this.file.name,
+	                                ' (',
+	                                parseInt(this.file.size / 1024 * 100) / 100.0,
+	                                ' kB)'
+	                            ),
+	                            _react2.default.createElement('input', { className: 'card_button', type: 'button', value: 'Update Profile Picture', onClick: function onClick() {
+	                                    _this3.props.dispatch((0, _profileActions.uploadImage)(_this3.file));
+	                                } })
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'p',
+	                        null,
+	                        'Chenlai Zhang'
+	                    ),
+	                    _react2.default.createElement(
+	                        'p',
+	                        null,
+	                        'April 1st, 1995'
 	                    )
-	                ),
-	                _react2.default.createElement(
-	                    'p',
-	                    null,
-	                    'Chenlai Zhang'
-	                ),
-	                _react2.default.createElement(
-	                    'p',
-	                    null,
-	                    'April 1st, 1995'
-	                ),
-	                !this.email ? '' : _react2.default.createElement(
-	                    'p',
-	                    null,
-	                    this.email.value
-	                ),
-	                !this.phone ? '' : _react2.default.createElement(
-	                    'p',
-	                    null,
-	                    this.phone.value
-	                ),
-	                !this.zipcode ? '' : _react2.default.createElement(
-	                    'p',
-	                    null,
-	                    this.zipcode.value
 	                )
 	            );
 	        }

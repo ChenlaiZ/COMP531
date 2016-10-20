@@ -9,7 +9,6 @@ import { searchKeyword } from './articleActions'
 const ArticlesView = ({username, articles, dispatch}) => {  
   let keyword = ''
   return (
-    <div>
       <table className="card_table">
         <NewArticle/>
         <tr>
@@ -31,7 +30,6 @@ const ArticlesView = ({username, articles, dispatch}) => {
             comments={article.comments}/>
         )}
       </table>
-    </div>
   )
 }
 

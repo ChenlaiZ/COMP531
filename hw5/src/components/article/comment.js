@@ -15,25 +15,24 @@ class Comment extends Component {
     render() {
         const date = moment(new Date(this.props.date))
         return (
-        <div className="row">
-            <div className="col-sm-1"></div>
-            <div className="col-sm-8">
+        <div>
+            <div>
                 <h4>
                     <img className="followingImage" src={ this.props.avatar }/>
-                    {this.props.author} commented
+                    &nbsp;&nbsp;{this.props.author} commented
                     on {date.format('MM-DD-YYYY')} at {date.format('HH:mm:ss')}
+                    <ContentEditable html={this.props.text}
+                        contentEditable={this.props.username == this.props.author}
+                        tooltip={this.props.username == this.props.author ? 'click to edit' : ''}
+                        onChange={(e) => {
+                            this.newMessage = e.target.value
+                            this.disabled = this.props.text == this.newMessage
+                            this.forceUpdate()
+                        }}/>
                 </h4>
-                <ContentEditable className="media-body" html={this.props.text}
-                    contentEditable={this.props.username == this.props.author}
-                    tooltip={this.props.username == this.props.author ? 'click to edit' : ''}
-                    onChange={(e) => {
-                        this.newMessage = e.target.value
-                        this.disabled = this.props.text == this.newMessage
-                        this.forceUpdate()
-                    }}/>
             { this.props.username != this.props.author ? '' :
-                <div className="media-right">
-                    <span className="btn btn-primary"
+                <div>
+                    <span className="cardbutton"
                         title="Click the text to edit your comment"
                         disabled={ this.disabled }
                         onClick={() => {
