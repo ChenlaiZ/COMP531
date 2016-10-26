@@ -16,7 +16,6 @@ export function initialVisit() {
             dispatch(fetchFollowers())
             dispatch(fetchArticles())
         }).catch((err) => {
-            console.log('error in initial visit')
         })
     }
 }
