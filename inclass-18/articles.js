@@ -34,18 +34,25 @@ const addArticle = (req, res) => {
 }
 
 const getArticles = (req, res) => {
-	res.send(articleSet)
+	if(req.params.id){
+		res.send(articleSet.filter((article) => {
+			return article.id == req.params.id
+		}))		
+	} else {
+		res.send(articleSet)
+	}
 }
-
+/*
 const getArticlesById = (req, res) => {
 	res.send(articleSet.filter((article) => {
 		return article.id == req.params.id
 	}))
 }
+*/
 const app = express()
 app.use(bodyParser.json())
-app.get('/articles/:id', getArticlesById)
-app.get('/articles', getArticles)
+app.get('/articles/:id*?', getArticles)
+//app.get('/articles', getArticles)
 app.post('/article', addArticle)
 
 // Get the port from the environment, i.e., Heroku sets it
