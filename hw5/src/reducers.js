@@ -33,7 +33,7 @@ function articles(state = { articles: {}, searchKeyword: '', avatars: {} }, acti
     }
 }
 
-function profile(state = { username:'', headline: '', avatar: '', zipcode: '', email: ''}, action) {
+function profile(state={username:'',headline:'',avatar:'',zipcode:'',email:''},action){
     switch (action.type) {
 
         case Action.UPDATE_HEADLINE:
@@ -45,7 +45,7 @@ function profile(state = { username:'', headline: '', avatar: '', zipcode: '', e
             if (action.avatar) return { ...state, avatar: action.avatar }
             if (action.zipcode) return { ...state, zipcode: parseInt(action.zipcode) }
             if (action.email) return { ...state, email: action.email }
-
+            if (action.dob) return {...state, dob: action.dob}
         default:
             return state
     }

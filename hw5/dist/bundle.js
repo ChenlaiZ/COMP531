@@ -24621,7 +24621,7 @@
 	            if (action.avatar) return _extends({}, state, { avatar: action.avatar });
 	            if (action.zipcode) return _extends({}, state, { zipcode: parseInt(action.zipcode) });
 	            if (action.email) return _extends({}, state, { email: action.email });
-	
+	            if (action.dob) return _extends({}, state, { dob: action.dob });
 	        default:
 	            return state;
 	    }
@@ -31000,9 +31000,9 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Nav = function Nav(_ref) {
-	  var username = _ref.username;
-	  var onProfile = _ref.onProfile;
-	  var dispatch = _ref.dispatch;
+	  var username = _ref.username,
+	      onProfile = _ref.onProfile,
+	      dispatch = _ref.dispatch;
 	  return _react2.default.createElement(
 	    'nav',
 	    null,
@@ -31092,7 +31092,6 @@
 	
 	function initialVisit() {
 	    return function (dispatch) {
-	        // try to log in
 	        (0, _actions.resource)('GET', 'headlines').then(function (response) {
 	            dispatch((0, _actions.navToMain)());
 	            dispatch({ type: _actions2.default.UPDATE_HEADLINE,
@@ -31103,7 +31102,7 @@
 	            dispatch((0, _followingActions.fetchFollowers)());
 	            dispatch((0, _articleActions.fetchArticles)());
 	        }).catch(function (err) {
-	            // that's okay
+	            console.log('error in initial visit');
 	        });
 	    };
 	}
@@ -31121,7 +31120,7 @@
 	
 	function logout() {
 	    return function (dispatch) {
-	        (0, _actions.resource)('PUT', 'logout').catch(function (err) {
+	        (0, _actions.resource)('PUT', 'logout').then(dispatch({ type: 'NAV_OUT' })).catch(function (err) {
 	            dispatch({ type: _actions2.default.LOGIN_LOCAL, username: undefined });
 	            dispatch((0, _actions.navToOut)());
 	        });
@@ -31129,13 +31128,13 @@
 	}
 	
 	function register(_ref) {
-	    var username = _ref.username;
-	    var email = _ref.email;
-	    var phone = _ref.phone;
-	    var birth = _ref.birth;
-	    var zipcode = _ref.zipcode;
-	    var password = _ref.password;
-	    var pwconf = _ref.pwconf;
+	    var username = _ref.username,
+	        email = _ref.email,
+	        phone = _ref.phone,
+	        birth = _ref.birth,
+	        zipcode = _ref.zipcode,
+	        password = _ref.password,
+	        pwconf = _ref.pwconf;
 	
 	    return function (dispatch) {
 	        if (!username || !email || !phone || !birth || !zipcode || !password || !pwconf) {
@@ -31340,11 +31339,8 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.validateProfile = validateProfile;
 	exports.updateHeadline = updateHeadline;
-	exports.updateProfile = updateProfile;
 	exports.fetchProfile = fetchProfile;
-	exports.uploadImage = uploadImage;
 	
 	var _actions = __webpack_require__(/*! ../../actions */ 204);
 	
@@ -31352,69 +31348,9 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function validateProfile(_ref) {
-	    var username = _ref.username;
-	    var email = _ref.email;
-	    var phone = _ref.phone;
-	    var zipcode = _ref.zipcode;
-	    var password = _ref.password;
-	    var pwconf = _ref.pwconf;
-	
-	    if (username) {
-	        if (!username.match('^[a-zA-Z][a-zA-Z0-9]+')) {
-	            return 'Invalid username.  Must start with a letter and can only contains letters and numbers.';
-	        }
-	    }
-	
-	    if (email) {
-	        if (!email.match('^[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z][a-zA-Z]+$')) {
-	            return 'Invalid email.  Must be like a@b.co';
-	        }
-	    }
-	
-	    if (phone) {
-	        if (!phone.match('^\[0-9]{3}[-]?\[0-9]{3}[-]?\[0-9]{4}$')) {
-	            return 'Invalid phone.  Must be like 123-123-1234';
-	        }
-	    }
-	
-	    if (zipcode) {
-	        if (!zipcode.match('^[0-9]{5}$')) {
-	            return 'Invalid zipcode.  Must be 5 digits in length, e.g., 77005';
-	        }
-	    }
-	
-	    if (password || pwconf) {
-	        if (password !== pwconf) {
-	            return 'Password do not match';
-	        }
-	        // enforce strong passwords!
-	    }
-	
-	    return '';
-	}
-	
 	function updateHeadline(headline) {
 	    return function (dispatch) {
 	        dispatch(updateField('headline', headline));
-	    };
-	}
-	
-	function updateProfile(_ref2) {
-	    var email = _ref2.email;
-	    var phone = _ref2.phone;
-	    var zipcode = _ref2.zipcode;
-	    var password = _ref2.password;
-	    var pwconf = _ref2.pwconf;
-	
-	    return function (dispatch) {
-	        var err = validateProfile({ email: email, phone: phone, zipcode: zipcode, password: password, pwconf: pwconf });
-	        if (err.length > 0) {
-	            return dispatch((0, _actions.updateError)(err));
-	        }
-	        dispatch(updateField('email', email));
-	        dispatch(updateField('zipcode', zipcode));
-	        dispatch(updateField('password', password));
 	    };
 	}
 	
@@ -31423,6 +31359,7 @@
 	        dispatch(fetchField('avatars'));
 	        dispatch(fetchField('zipcode'));
 	        dispatch(fetchField('email'));
+	        dispatch(fetchField('dob'));
 	    };
 	}
 	
@@ -31451,21 +31388,11 @@
 	                    action.email = response.email;break;
 	                case 'zipcode':
 	                    action.zipcode = response.zipcode;break;
+	                case 'dob':
+	                    action.dob = new Date(response.dob).toDateString();break;
 	            }
 	            dispatch(action);
 	        });
-	    };
-	}
-	
-	function uploadImage(file) {
-	    return function (dispatch) {
-	        if (file) {
-	            var fd = new FormData();
-	            fd.append('image', file);
-	            (0, _actions.resource)('PUT', 'avatar', fd, false).then(function (response) {
-	                dispatch({ type: _actions2.default.UPDATE_PROFILE, avatar: response.avatar });
-	            });
-	        }
 	    };
 	}
 	
@@ -31699,10 +31626,10 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var Follower = function Follower(_ref) {
-	    var name = _ref.name;
-	    var avatar = _ref.avatar;
-	    var headline = _ref.headline;
-	    var dispatch = _ref.dispatch;
+	    var name = _ref.name,
+	        avatar = _ref.avatar,
+	        headline = _ref.headline,
+	        dispatch = _ref.dispatch;
 	    return _react2.default.createElement(
 	        'div',
 	        { className: 'follower_card', name: 'follower' },
@@ -31870,9 +31797,9 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var ArticlesView = function ArticlesView(_ref) {
-	  var username = _ref.username;
-	  var articles = _ref.articles;
-	  var dispatch = _ref.dispatch;
+	  var username = _ref.username,
+	      articles = _ref.articles,
+	      dispatch = _ref.dispatch;
 	
 	  var keyword = '';
 	  return _react2.default.createElement(
@@ -32167,7 +32094,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {//! moment.js
-	//! version : 2.15.1
+	//! version : 2.15.2
 	//! authors : Tim Wood, Iskren Chernev, Moment.js contributors
 	//! license : MIT
 	//! momentjs.com
@@ -32998,7 +32925,7 @@
 	
 	    // LOCALES
 	
-	    var MONTHS_IN_FORMAT = /D[oD]?(\[[^\[\]]*\]|\s+)+MMMM?/;
+	    var MONTHS_IN_FORMAT = /D[oD]?(\[[^\[\]]*\]|\s)+MMMM?/;
 	    var defaultLocaleMonths = 'January_February_March_April_May_June_July_August_September_October_November_December'.split('_');
 	    function localeMonths (m, format) {
 	        if (!m) {
@@ -36363,7 +36290,7 @@
 	    // Side effect imports
 	
 	
-	    utils_hooks__hooks.version = '2.15.1';
+	    utils_hooks__hooks.version = '2.15.2';
 	
 	    setHookCallback(local__createLocal);
 	
@@ -41501,7 +41428,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
-	//! locale : Japanese [jv]
+	//! locale : Javanese [jv]
 	//! author : Rony Lantip : https://github.com/lantip
 	//! reference: http://jv.wikipedia.org/wiki/Basa_Jawa
 	
@@ -42290,7 +42217,7 @@
 	        months : {
 	            format: 'sausio_vasario_kovo_balandžio_gegužės_birželio_liepos_rugpjūčio_rugsėjo_spalio_lapkričio_gruodžio'.split('_'),
 	            standalone: 'sausis_vasaris_kovas_balandis_gegužė_birželis_liepa_rugpjūtis_rugsėjis_spalis_lapkritis_gruodis'.split('_'),
-	            isFormat: /D[oD]?(\[[^\[\]]*\]|\s+)+MMMM?|MMMM?(\[[^\[\]]*\]|\s+)+D[oD]?/
+	            isFormat: /D[oD]?(\[[^\[\]]*\]|\s)+MMMM?|MMMM?(\[[^\[\]]*\]|\s)+D[oD]?/
 	        },
 	        monthsShort : 'sau_vas_kov_bal_geg_bir_lie_rgp_rgs_spa_lap_grd'.split('_'),
 	        weekdays : {
@@ -47248,8 +47175,8 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var ErrorMessage = function ErrorMessage(_ref) {
-	    var error = _ref.error;
-	    var success = _ref.success;
+	    var error = _ref.error,
+	        success = _ref.success;
 	    return _react2.default.createElement(
 	        'div',
 	        { className: 'row' },
@@ -47682,8 +47609,8 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Messages_ = function Messages_(_ref) {
-	    var error = _ref.error;
-	    var success = _ref.success;
+	    var error = _ref.error,
+	        success = _ref.success;
 	    return _react2.default.createElement(
 	        'div',
 	        null,
@@ -47804,10 +47731,10 @@
 	        value: function componentDidUpdate() {
 	            if (this.props.error.length == 0) {
 	                this.email.value = null;
-	                this.phone.value = null;
 	                this.zipcode.value = null;
 	                this.password.value = null;
 	                this.pwconf.value = null;
+	                this.dob.value = null;
 	            }
 	        }
 	    }, {
@@ -47816,18 +47743,8 @@
 	            var _this2 = this;
 	
 	            return _react2.default.createElement(
-	                'form',
-	                { onSubmit: function onSubmit(e) {
-	                        if (e) e.preventDefault();
-	                        var payload = {
-	                            email: _this2.email.value == _this2.oldEmail ? '' : _this2.email.value,
-	                            phone: _this2.phone.value,
-	                            zipcode: _this2.zipcode.value == _this2.oldZipcode ? '' : _this2.zipcode.value,
-	                            password: _this2.password.value,
-	                            pwconf: _this2.pwconf.value
-	                        };
-	                        _this2.props.dispatch((0, _profileActions.updateProfile)(payload));
-	                    } },
+	                'div',
+	                null,
 	                _react2.default.createElement(
 	                    'table',
 	                    { className: 'index_table' },
@@ -47854,14 +47771,14 @@
 	                        _react2.default.createElement(
 	                            'td',
 	                            null,
-	                            'Phone Number'
+	                            'Date of Birth'
 	                        ),
 	                        _react2.default.createElement(
 	                            'td',
 	                            null,
-	                            _react2.default.createElement('input', { id: 'phone', type: 'text', placeholder: this.props.phone,
+	                            _react2.default.createElement('input', { id: 'birth', type: 'text', name: 'DOB', placeholder: this.props.oldDob,
 	                                ref: function ref(node) {
-	                                    return _this2.phone = node;
+	                                    return _this2.dob = node;
 	                                } })
 	                        )
 	                    ),
@@ -47923,7 +47840,7 @@
 	                    { className: 'btnprofile' },
 	                    _react2.default.createElement(
 	                        'button',
-	                        { className: 'button', type: 'submit' },
+	                        { className: 'button', type: 'button' },
 	                        'Update'
 	                    )
 	                )
@@ -47937,7 +47854,6 @@
 	ProfileForm.propTypes = {
 	    error: _react.PropTypes.string.isRequired,
 	    oldZipcode: _react.PropTypes.number.isRequired,
-	    phone: _react.PropTypes.string.isRequired,
 	    oldEmail: _react.PropTypes.string.isRequired,
 	    dispatch: _react.PropTypes.func.isRequired
 	};
@@ -47946,7 +47862,8 @@
 	    return {
 	        error: state.common.error,
 	        oldZipcode: state.profile.zipcode,
-	        oldEmail: state.profile.email
+	        oldEmail: state.profile.email,
+	        oldDob: state.profile.dob
 	    };
 	})(ProfileForm);
 	exports.PureProfileForm = ProfileForm;
@@ -48063,20 +47980,12 @@
 	                                parseInt(this.file.size / 1024 * 100) / 100.0,
 	                                ' kB)'
 	                            ),
-	                            _react2.default.createElement('input', { className: 'card_button', type: 'button', value: 'Update Profile Picture', onClick: function onClick() {
+	                            _react2.default.createElement('input', { className: 'card_button', type: 'button',
+	                                value: 'Update Profile Picture',
+	                                onClick: function onClick() {
 	                                    _this3.props.dispatch((0, _profileActions.uploadImage)(_this3.file));
 	                                } })
 	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        'p',
-	                        null,
-	                        'Chenlai Zhang'
-	                    ),
-	                    _react2.default.createElement(
-	                        'p',
-	                        null,
-	                        'April 1st, 1995'
 	                    )
 	                )
 	            );

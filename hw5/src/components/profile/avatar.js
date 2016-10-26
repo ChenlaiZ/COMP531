@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import { uploadImage } from './profileActions'
-
 class Avatar extends Component {
 
     componentDidUpdate(oldprops) {
@@ -26,7 +25,8 @@ class Avatar extends Component {
         reader.readAsDataURL(this.file)
     }
 
-    render() { return (
+    render() {
+     return (
         <div className="left_box">
             <div className="user_card">
                 <img width="100%" src={this.props.img}/>
@@ -41,12 +41,12 @@ class Avatar extends Component {
                         <div>
                             { this.file.webkitRelativePath || this.file.name } ({ parseInt(this.file.size / 1024 * 100)/100.0 } kB)
                         </div>
-                        <input className="card_button" type="button" value="Update Profile Picture" onClick={() => { this.props.dispatch(uploadImage(this.file)) }}/>
+                        <input className="card_button" type="button" 
+                        value="Update Profile Picture" 
+                        onClick={() => { this.props.dispatch(uploadImage(this.file)) }}/>
                     </div>
                 }
-                </div>
-                <p>Chenlai Zhang</p>
-                <p>April 1st, 1995</p>         
+                </div>      
             </div>
         </div>
     )}
@@ -59,8 +59,6 @@ export default connect(
         }
     }
 )(Avatar)
-
-
 
 /** WEBPACK FOOTER **
  ** ./src/components/profile/avatar.js

@@ -6,7 +6,6 @@ import { fetchProfile, validateProfile } from '../profile/profileActions'
 
 export function initialVisit() {
     return (dispatch) => {
-        // try to log in
         resource('GET', 'headlines').then((response) => {
             dispatch(navToMain())
             dispatch({type: Action.UPDATE_HEADLINE,
@@ -17,7 +16,7 @@ export function initialVisit() {
             dispatch(fetchFollowers())
             dispatch(fetchArticles())
         }).catch((err) => {
-            // that's okay
+            console.log('error in initial visit')
         })
     }
 }
@@ -37,6 +36,7 @@ export function localLogin(username, password) {
 export function logout() {
     return (dispatch) => {
         resource('PUT', 'logout')
+        .then(dispatch({type:'NAV_OUT'}))
         .catch((err) => {
             dispatch({type: Action.LOGIN_LOCAL, username: undefined})
             dispatch(navToOut())
