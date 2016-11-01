@@ -53,6 +53,12 @@ span{
 .login_title { 
     font-size: 18px;
     text-align: center;
+    border-collapse: collapse;
+    width: 50%;
+    background: powderblue;
+    align-content: center;
+    margin-left:25%; 
+    margin-right:25%; 
 }
 
 .btnsignin { 

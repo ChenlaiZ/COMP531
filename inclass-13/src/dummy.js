@@ -67,7 +67,7 @@ const updateHeadline = (headline) => {
     // IMPLEMENT ME
     // Update the headline shown on the screen.  Be sure to not
     // repeat yourself (DRY) => you will want to refactor some code.
-    box.innerHTML = `${response.headline}`
+    box.innerHTML = `you are logged in as ${user.username} "${response.headline}"`
   })
 }
 
