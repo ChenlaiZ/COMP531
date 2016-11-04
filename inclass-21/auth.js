@@ -57,7 +57,7 @@ function login(req, res) {
 	res.send(msg)
 }
 
-exports.setup = function(app) {
+module.exports = app => {
 	app.use(cookieParser());
 	app.post('/register', register)
 	app.post('/login', login)
