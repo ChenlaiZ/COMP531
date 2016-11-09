@@ -1,55 +1,31 @@
-const md5 = require('md5');
-
-var User = {users: [{username: "", salt: "", hash: ""}]}
-
 var cookieKey = 'sid'
+var session_id
 
 function register(req, res) {
 	console.log('register')
 	var username = req.body.username
+	var email = req.body.email
+	var dob = req.body.dob
+	var zipcode = req.body.zipcode
 	var password = req.body.password
-	if(!username || !password){
-		res.sendStatus(400)
+
+	if(!username || !dob || !zipcode || !email || !password){
+		res.status(400).send({result:'Should fill all the fields!'})
 		return
 	}
-	var salt = 0;
-	for(var i=0; i<5; i++){
-		salt = salt*10 + Math.floor(Math.random() * 10)
-	}
-	var hash = md5("" + salt + password);
-	User.users.push({username: username, salt: salt, hash: hash});
-	res.send({users: [{username: username, salt: salt, hash: hash}]});	
+	res.status(200).send({result: 'success',username: username});	
 }
 
-function getUser(username) {
-	return User.users.filter(r => { return r.username === ''+ username})[0]
-}
-
-function isLoginAuthorized(req, obj) {
-	var salt = obj.salt
-	var pass = req.body.password
-	var rehash = md5("" + salt + pass)
-	return obj.hash === rehash
-}
-
-function generateCode(userObj) {
-	return userObj.username.length;
-}
 
 function login(req, res) {
 	var username = req.body.username
 	var password = req.body.password
 	if(!username || !password) {
-		res.sendStatus(400)
+		res.status(400),send({result: 'should fill both username and password'})
 		return
 	}
-	var userObj = getUser(username)
-	if(!userObj || !isLoginAuthorized(req, userObj)) {
-		res.sendStatus(401)
-		return
-	}
-
-	res.cookie(cookieKey, generateCode(userObj), 
+	session_id = Math.random()*1000
+	res.cookie(cookieKey, session_id, 
 		{MaxAge: 3600*1000, httpOnly: true })
 
 	var msg = { username: username, result: 'success'}
@@ -57,6 +33,7 @@ function login(req, res) {
 }
 
 function logout(req, res) {
+	session_id = null
 	res.send('OK');
 }
 
@@ -71,6 +48,7 @@ function putPassword(req, res) {
 	        status:'will not change'
 	    })
 }
+
 module.exports = (app) => {
     app.post('/login', login)
     app.post('/register', register)

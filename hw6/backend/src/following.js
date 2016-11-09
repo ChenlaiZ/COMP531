@@ -1,7 +1,7 @@
 const following = {
     users:{
     	'cz32':['cz32test','test1','test2'],
-        'cz32test':['cz32','test1','test2'],
+        'sampleUser':['cz32','test1','test2'],
     }
 }
 

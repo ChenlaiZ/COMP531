@@ -49,7 +49,23 @@ const getArticles = (req, res) => {
 	}
 }
 
+const putArticle = (req, res) => {
+	const text = req.body.text;
+	if(req.params.id > articleSet.length || req.params.id <= 0){
+		res.status(401).send("Forbidden!")
+		return;
+	}
+	if(!req.body.commentId){
+		articleSet[req.params.id-1].text = req.body.text;
+	}
+	else{
+		articleSet[req.params.id-1].comments.push(req.body.text);
+	}
+	res.status(200).send({articles: [articleSet[req.params.id-1]]});	
+}
+
 module.exports = (app) => {
 	app.get('/articles/:id*?', getArticles)
 	app.post('/article', addArticle)  
+	app.put('/articles/:id', putArticle)
 } 

@@ -25,12 +25,12 @@ const profile = {
 				zipcode: 22222,
 				avatar: 'test2Avatar'
 			},
-			'test3':{
-				headline: 'test3 headline',
+			'sampleUser':{
+				headline: 'sampleUser headline',
 				dob: (new Date('04/19/1991')).toDateString(),
-				email:'test3@gmail.com',
+				email:'sampleUser@gmail.com',
 				zipcode: 33333,
-				avatar: 'test3Avatar'
+				avatar: 'sampleUserAvatar'
 			}
 		}
 	}
@@ -68,6 +68,7 @@ const getDob = (req, res) =>{
 const getEmails = (req, res) => {
 	if (!req.user) req.user = 'cz32'
 	const user = req.params.user ? req.params.user : req.user
+	console.log(user)
 	res.send({
 			username: user,
 			email: profile.profiles[user].email	
@@ -120,13 +121,13 @@ const putAvatar = (req, res) => {
 }
 
 module.exports = (app) => {
-    app.get('/headlines/:users*?', getHeadlines)
+    app.get('/headlines/:users?', getHeadlines)
     app.put('/headline', putHeadline)
     app.get('/dob',getDob)
-	app.get('/emails/:user*?', getEmails)
+	app.get('/email/:user?', getEmails)
 	app.put('/email', putEmail)
-	app.get('/zipcodes/:user*?', getZipcodes)
+	app.get('/zipcode/:user?', getZipcodes)
 	app.put('/zipcode', putZipcode)
-	app.get('/avatars/:user*?', getAvatars)
+	app.get('/avatars/:user?', getAvatars)
 	app.put('/avatar', putAvatar)    
 } 

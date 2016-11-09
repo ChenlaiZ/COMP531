@@ -1,17 +1,10 @@
 
 > RiceBookServer@0.0.0 test /Users/chenlaizhang/Downloads/COMP531/hw6/backend
-> mocha --opts mocha.opts src/**/*.spec.js
+> mocha --opts mocha.opts src/**/*.spec.js "-R" "xunit"
 
 
-[0m[0m
-[0m  Validate Article functionality[0m
-  [32m  ✓[0m[90m should give me three or more articles[0m
-
-  [32m  ✓[0m[90m should add a new article, and increase #articles by one[0m
-
-[0m  Validate Profile functionality[0m
-  [32m  ✓[0m[90m should put a new headline[0m
-
-
-[92m [0m[32m 3 passing[0m[90m (47ms)[0m
-
+<testsuite name="Mocha Tests" tests="3" failures="0" errors="0" skipped="0" timestamp="Wed, 09 Nov 2016 00:47:42 GMT" time="0.082">
+<testcase classname="Validate Article functionality" name="should give me three or more articles" time="0.034"/>
+<testcase classname="Validate Article functionality" name="should add a new article, and increase #articles by one" time="0.035"/>
+<testcase classname="Validate Profile functionality" name="should put a new headline" time="0.008"/>
+</testsuite>
