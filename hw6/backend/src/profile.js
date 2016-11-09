@@ -35,6 +35,9 @@ const profile = {
 		}
 	}
 
+const index = (req, res) => {
+     res.send({ hello: 'world' })
+}
 
 const getHeadlines = (req, res) => {
     if (!req.user) req.user = 'cz32'
@@ -121,6 +124,7 @@ const putAvatar = (req, res) => {
 }
 
 module.exports = (app) => {
+	app.get('/', index)
     app.get('/headlines/:users?', getHeadlines)
     app.put('/headline', putHeadline)
     app.get('/dob',getDob)
