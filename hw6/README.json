@@ -1,5 +1,5 @@
 { 
      "netid": "cz32",
-  "frontend": "https://cz32_ricebook.surge.sh",
+  "frontend": "https://ricebook_frontend.surge.sh",
   "backend": "https://cz32ricebookserver.herokuapp.com"
 }
