@@ -9,7 +9,7 @@ const Follower = ({name, avatar, headline, dispatch}) => (
         <p>{ name }</p>
         <p><em>{ headline }</em></p>
         <p>
-            <input className="udtbtn" type="button" value="Unfollow" onClick={() => { dispatch(delFollower(name)) }} />
+            <input className="unfollow" type="button" value="Unfollow" onClick={() => { dispatch(delFollower(name)) }} />
         </p>
         <div>&nbsp;</div>
     </div>
@@ -32,12 +32,12 @@ class Following extends Component {
                     dispatch={this.props.dispatch} />           
             )}
             <div>
-                <p><input type="text" placeholder="add a follower"
+                <p><input id="add_follower" type="text" placeholder="add a follower"
                         ref={(node) => this.newFollower = node }
                         onChange={(e) => { this.forceUpdate() }}/></p>
                 <div>&nbsp;</div>
                 { !(this.newFollower && this.newFollower.value && this.newFollower.value.length > 0) ? '' :
-                    <p><input type="button"
+                    <p><input type="button" id="addFollowerBtn" 
                         onClick={() => {
                             this.props.dispatch(addFollower(this.newFollower.value))
                             this.newFollower.value = ''

@@ -16,10 +16,10 @@ const Nav = ({username, onProfile, dispatch}) => (
         { username.length == 0 ? '' :
           <div>      
             { onProfile ?
-              <li className="button"><a href="#" onClick={() => { dispatch(navToMain()) }}>Home</a></li> :
-              <li className="button"><a href="#" onClick={() => { dispatch(navToProfile()) }}>Edit Your Profile</a></li>
+              <li className="button" id="navHome"><a href="#" onClick={() => { dispatch(navToMain()) }}>Home</a></li> :
+              <li className="button" id="navProfile"><a href="#" onClick={() => { dispatch(navToProfile()) }}>Edit Your Profile</a></li>
             }
-            <li className="button"><a href="#" onClick={() => { dispatch(logout()) }}>Log out {username} </a></li>
+            <li className="button" id="navLogout"><a href="#" onClick={() => { dispatch(logout()) }}>Log out {username} </a></li>
           </div>
         }
       </div>

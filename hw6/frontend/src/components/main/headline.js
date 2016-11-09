@@ -11,14 +11,14 @@ class Headline extends Component {
             <p id="headline">{ this.props.headline }</p>
             <div>
                 <div>
-                    <p><input className="headfield" id="headline" type="text"
+                    <p><input className="headfield" id="newheadline" type="text"
                         placeholder="update your headline"
                         ref={ (node) => { this.newHeadline = node }}
                         onChange={() => this.forceUpdate()} /></p>
                 </div>
                 { !(this.newHeadline && this.newHeadline.value.length > 0) ? '' :
                     <div>
-                        <p><input className="udtbtn" type="button" value="Update your Headline"
+                        <p><input className="udtbtn" id="headlineBtn" type="button" value="Update your Headline"
                             onClick={() => {
                                 this.props.dispatch(updateHeadline(this.newHeadline.value))
                                 this.newHeadline.value = ''

@@ -30,7 +30,7 @@ class Avatar extends Component {
      return (
         <div className="left_box">
             <div className="user_card">
-                <img width="100%" src={this.props.img}/>
+                <img id="profileImg" width="100%" src={this.props.img}/>
                 <em>Upload new profile avatar</em>
                 <p><input type="file" accept="image/*" onChange={(e) => this.handleImageChange(e)}/></p>
                 <div>

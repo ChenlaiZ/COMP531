@@ -21,7 +21,7 @@ const Login = ({dispatch}) => {
             </table>
             <div>&nbsp;</div>
             <div className="btnsignin">
-                <input className="button" type="button" value="Log In"
+                <input className="button" id="loginButton" type="button" value="Log In"
                 onClick={() => { dispatch(localLogin(username.value, password.value)) }}/>
             </div>
         </div>            

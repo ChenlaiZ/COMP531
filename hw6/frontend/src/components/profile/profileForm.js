@@ -55,7 +55,7 @@ class ProfileForm extends Component {
             </table>
             <br />
             <div className="btnprofile">
-                <button className="button" type="submit">Update</button> 
+                <button className="button" id="updateBtn" type="submit">Update</button> 
             </div>
 
         </form>

@@ -13,7 +13,7 @@ const ArticlesView = ({username, articles, dispatch}) => {
         <NewArticle/>
         <tr>
           <td>
-            <p><input type="text" className="searchfield" placeholder="Search Posts"
+            <p><input type="text" id="search" className="searchfield" placeholder="Search Posts"
               ref={(node) => keyword = node }
               onChange={() => { dispatch(searchKeyword(keyword.value)) }}/></p>
           </td>

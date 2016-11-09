@@ -29,7 +29,7 @@ class Article extends Component {
                 on {date.format('MM-DD-YYYY')} at {date.format('HH:mm:ss')}</span>
               </p>
               <p>
-                <ContentEditable className="media-body" html={this.props.text}
+                <ContentEditable className="media-body" id="media-body" html={this.props.text}
                   contentEditable={this.props.username == this.props.author}
                   tooltip={this.props.username == this.props.author ? 'click to edit' : ''}
                   onChange={(e) => {
@@ -57,7 +57,7 @@ class Article extends Component {
                     </label>
                     &nbsp;&nbsp;&nbsp;
                     { this.props.author != this.props.username ? '' :               
-                      <label className="cardbutton"
+                      <label className="postEditbutton"
                         title="Click the text to edit your post"
                         disabled={this.disabled}
                         onClick={() => {

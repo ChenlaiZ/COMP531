@@ -26,7 +26,7 @@ class NewArticle extends Component {
                     <div className="card">
                         <div>
                             <p>Say something...</p>
-                            <p><textarea className="postarea"
+                            <p><textarea className="postarea" id="postarea"
                               placeholder="Add your post here..."
                               value={ this.message }
                               onChange={(e) => {
@@ -39,7 +39,7 @@ class NewArticle extends Component {
                             <input type="file" id="articleImage" accept="image/*" onChange={(e) => this.handleImageChange(e)}/>
                             { !this.file && !this.message ? '' :
                                 <div>
-                                    <input className="cardbutton" type="button" value="Publish it"
+                                    <input className="cardbutton" id="postBtn" type="button" value="Publish it"
                                         onClick={() => {
                                             this.props.dispatch(uploadArticle(this.message, this.file))
                                             this.message = ''
