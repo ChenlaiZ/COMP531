@@ -74,11 +74,15 @@ const getAvatars = (req, res) => {
 const putAvatar = (req, res) => {
    //fileurl = "http://res.cloudinary.com/hx2trslbc/image/upload/v1479420582/g0nf0zuvztr43l5qlvvx.jpg"
    // create an image tag from the cloudinary upload
-   const image = cloudinary.image(req.fileid, {
-       format: "png", width: 100, height: 130, crop: "fill" 
-   })
-   // create a response to the user's upload
-   res.send(`Uploaded: ${req.fileurl}<br/><a href="${req.fileurl}">${image}</a>`);
+   if(!req.fileid || !req.fileurl){
+   		res.status(401).send('error upload image')
+   } else {
+	   const image = cloudinary.image(req.fileid, {
+	       format: "png", width: 100, height: 130, crop: "fill" 
+	   })
+	   // create a response to the user's upload
+	   res.status(200).send(`Uploaded: ${req.fileurl}<br/><a href="${req.fileurl}">${image}</a>`);
+   }
 }
 
 const addArticle = (req, res) => {
