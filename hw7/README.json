@@ -1,0 +1,5 @@
+{ 
+     "netid": "cz32",
+  "frontend": "http://opposite-bomb.surge.sh",
+  "backend": "https://fierce-woodland-83333.herokuapp.com"
+}
