@@ -213,17 +213,6 @@ function isRegularAccountAuthorized(req, obj) {
 	return obj.hash === rehash	
 }
 
-function arrayUnique(array) {
-    var uniqueArray = array.concat();
-    for(var i=0; i<uniqueArray.length; ++i) {
-        for(var j=i+1; j<uniqueArray.length; ++j) {
-            if(uniqueArray[i] === uniqueArray[j])
-                uniqueArray.splice(j--, 1);
-        }
-    }
-    return uniqueArray;
-}
-
 //link facebook account with regular account
 const linkfb = (req, res) => {
 	const username = req.body.regularUsername;
@@ -242,15 +231,15 @@ const linkfb = (req, res) => {
 			res.status(400).send({result: 'No matched username'})
 		}
 		if(isRegularAccountAuthorized(req, userObj)){
+			//combine the articles, comments, and following users
 			Article.update({author:req.username}, {$set: {'author': username}}, { new: true, multi: true }, function(){})
 			Article.update({'comments.author' : req.username}, { $set: {'comments.$.author': username}}, { new: true, multi: true  }, function(){})
 			Comment.update({author:req.username}, {$set: {'author': username}}, { new: true, multi: true  }, function(){})
 			Profile.findOne({username: req.username}).exec(function(err, profile){
 				if(profile){
-					const oldFollowingUsers = profile.following
 					Profile.findOne({username: username}).exec(function(err, newProfile) {
 						if(newProfile){
-							const newFollowingUsers = arrayUnique(newProfile.following.concat(oldFollowingUsers))
+							const newFollowingUsers = newProfile.following.concat(profile.following)
 							Profile.update({username: username}, {$set: {'following': newFollowingUsers}}, function(){})
 						}
 					})
