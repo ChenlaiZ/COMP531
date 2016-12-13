@@ -1,0 +1,5 @@
+{ 
+     "netid": "cz32",
+  "frontend": "http://illustrious-trade.surge.sh",
+  "backend": "https://stark-ridge-57925.herokuapp.com/"
+}
